@@ -1,6 +1,6 @@
 "use client";
 
-import { SidePaddingWrapper } from "@components/PaddingWrapper/styles";
+import { PaddingWrapper } from "@components/PaddingWrapper/styles";
 import {
   HeaderContainer,
   Logo,
@@ -14,7 +14,7 @@ import {
 
 export default function Header() {
   return (
-    <SidePaddingWrapper>
+    <PaddingWrapper>
       <HeaderContainer>
         {/* Left */}
         <Logo>
@@ -37,6 +37,6 @@ export default function Header() {
           </Button>
         </RightContainer>
       </HeaderContainer>
-    </SidePaddingWrapper>
+    </PaddingWrapper>
   );
 }

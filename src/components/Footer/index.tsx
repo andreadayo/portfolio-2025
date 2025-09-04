@@ -1,6 +1,6 @@
 "use client";
 
-import { MainPaddingWrapper } from "@components/PaddingWrapper/styles";
+import { PaddingWrapper } from "@components/PaddingWrapper/styles";
 import { Divider } from "@components/Divider";
 import {
   FooterContainer,
@@ -23,7 +23,7 @@ import {
 
 export default function Footer() {
   return (
-    <MainPaddingWrapper>
+    <PaddingWrapper>
       <FooterContainer>
         <Divider type="black">Contact</Divider>
 
@@ -79,6 +79,6 @@ export default function Footer() {
           </Button>
         </CopyrightContainer>
       </FooterContainer>
-    </MainPaddingWrapper>
+    </PaddingWrapper>
   );
 }
