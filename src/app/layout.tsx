@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { ThemeProviderWrapper } from "@components/ThemeProviderWrapper";
-
 import Header from "@components/Header";
+import Footer from "@components/Footer";
 
 export const metadata: Metadata = {
   title: "Andrea Dayo | Portfolio",
@@ -19,6 +19,7 @@ export default function RootLayout({
         <ThemeProviderWrapper>
           <Header />
           {children}
+          <Footer />
         </ThemeProviderWrapper>
       </body>
     </html>

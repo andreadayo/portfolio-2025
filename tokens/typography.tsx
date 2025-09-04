@@ -40,7 +40,6 @@ const Subtitle = styled.span`
   font-family: ${azeretMono.style.fontFamily}, Arial, sans-serif;
   font-style: normal;
   font-weight: 400;
-  line-height: 150%;
   letter-spacing: 0;
 `;
 
