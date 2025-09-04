@@ -19,7 +19,6 @@ export const ThanksContainer = styled.div`
   flex-grow: 1;
   width: 100%;
   height: 100%;
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -31,7 +30,6 @@ export const TwoColumns = styled.div`
   grid-template-columns: 1fr 1fr;
   justify-content: center;
   align-items: center;
-
   outline: 0.125rem solid ${({ theme }) => theme.borderColor};
 `;
 
@@ -39,7 +37,6 @@ export const MessageContainer = styled.div`
   width: 100%;
   height: 100%;
   padding: 1.5rem 3.25rem;
-
   outline: 0.125rem solid ${({ theme }) => theme.borderColor};
 `;
 

@@ -17,7 +17,6 @@ export const Title = styled.div<{ type: "black" | "yellow" }>`
   align-items: center;
   background-color: ${({ theme, type }) =>
     type === "black" ? theme.invertedBGColor : theme.accentColor};
-
   outline: 0.125rem solid ${({ theme }) => theme.borderColor};
 `;
 
@@ -27,7 +26,7 @@ export const Text = styled(SubtitleSM)<{ type: "black" | "yellow" }>`
   text-transform: uppercase;
 
   &::before {
-    content: "// "; /* add prefix before text */
+    content: "// ";
     margin-right: 0.25rem;
     color: inherit;
   }
