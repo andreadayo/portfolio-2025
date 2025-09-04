@@ -9,7 +9,7 @@ export const HeaderContainer = styled.div`
   align-items: center;
   justify-content: space-between;
   background-color: ${({ theme }) => theme.bgColor};
-  border-bottom: 0.125rem solid ${({ theme }) => theme.borderColor};
+  outline: 0.125rem solid ${({ theme }) => theme.borderColor};
 `;
 
 export const Logo = styled.div`
@@ -19,8 +19,7 @@ export const Logo = styled.div`
   align-items: center;
   justify-content: center;
   background-color: ${({ theme }) => theme.accentColor};
-  border: 0.125rem solid ${({ theme }) => theme.borderColor};
-  border-top: none;
+  outline: 0.125rem solid ${({ theme }) => theme.borderColor};
 `;
 
 export const Text = styled(SubtitleSM)`
@@ -32,8 +31,7 @@ export const RightContainer = styled.div`
   justify-content: flex-end;
   display: flex;
   align-items: center;
-  border: 0.125rem solid ${({ theme }) => theme.borderColor};
-  border-top: none;
+  outline: 0.125rem solid ${({ theme }) => theme.borderColor};
 `;
 
 export const LinksContainer = styled.div`
@@ -44,7 +42,7 @@ export const LinksContainer = styled.div`
   align-items: center;
   justify-content: center;
   gap: 2rem;
-  border-right: 0.125rem solid ${({ theme }) => theme.borderColor};
+  outline: 0.125rem solid ${({ theme }) => theme.borderColor};
 `;
 
 export const Status = styled.div`
