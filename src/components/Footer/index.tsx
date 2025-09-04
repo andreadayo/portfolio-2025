@@ -1,10 +1,9 @@
 "use client";
 
 import { MainPaddingWrapper } from "@components/PaddingWrapper/styles";
+import { Divider } from "@components/Divider";
 import {
   FooterContainer,
-  Divider,
-  DividerText,
   TwoColumns,
   MessageContainer,
   MessageText,
@@ -18,17 +17,14 @@ import {
   CopyrightWrapper,
   CopyrightText,
   Button,
-  ButtonText,
+  Label,
 } from "./styles";
 
 export default function Footer() {
   return (
     <MainPaddingWrapper>
       <FooterContainer>
-        {/*  TODO: DIVIDER - Convert to component */}
-        <Divider>
-          <DividerText>{"// Contact"}</DividerText>
-        </Divider>
+        <Divider type="black">Contact</Divider>
 
         {/* Email */}
         <TwoColumns>
@@ -50,9 +46,7 @@ export default function Footer() {
         <TwoColumns>
           {/*  Explore */}
           <Column>
-            <Divider>
-              <DividerText>{"// Explore"}</DividerText>
-            </Divider>
+            <Divider type="yellow">Explore</Divider>
             <LinksContainer>
               <LinkItem>Home</LinkItem>
               <LinkItem>About</LinkItem>
@@ -62,9 +56,7 @@ export default function Footer() {
           </Column>
           {/*  Get in touch */}
           <Column>
-            <Divider>
-              <DividerText>{"// Get in touch"}</DividerText>
-            </Divider>
+            <Divider type="yellow">Get in touch</Divider>
             <LinksContainer>
               <LinkItem>LinkedIn</LinkItem>
               <LinkItem>Github</LinkItem>
@@ -78,9 +70,8 @@ export default function Footer() {
           <CopyrightWrapper>
             <CopyrightText>© 2025 All rights reserved.</CopyrightText>
           </CopyrightWrapper>
-          {/* TODO: Convert button to component */}
           <Button>
-            <ButtonText>Back to Top</ButtonText>
+            <Label>Back to Top</Label>
           </Button>
         </CopyrightContainer>
       </FooterContainer>
