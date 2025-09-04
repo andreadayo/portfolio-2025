@@ -65,6 +65,9 @@ export const SubtitleMD = styled(Subtitle)`
 export const SubtitleBase = styled(Subtitle)`
   font-size: ${({ theme }) => theme?.fontSize?.base};
 `;
+export const SubtitleSM = styled(Subtitle)`
+  font-size: ${({ theme }) => theme?.fontSize?.sm};
+`;
 export const SubtitleXS = styled(Subtitle)`
   font-size: ${({ theme }) => theme?.fontSize?.xs};
 `;

@@ -1,8 +1,8 @@
 "use client";
 
 import { ThemeProvider } from "styled-components";
-import theme from "../../../../theme/theme";
-import GlobalStyle from "../../../../theme/global";
+import theme from "@theme/theme";
+import GlobalStyle from "@theme/global";
 
 export function ThemeProviderWrapper({
   children,

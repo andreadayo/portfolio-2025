@@ -4,6 +4,11 @@ declare module "styled-components" {
   export interface DefaultTheme {
     bgColor: string;
     contentColor: string;
+    invertedBGColor: string;
+    invertedContentColor: string;
+
+    borderColor: string;
+
     accentColor: string;
     textAccentColor: string;
 
