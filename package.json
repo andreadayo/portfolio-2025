@@ -7,6 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
+    "lint:css": "stylelint './src/**/*.{ts,tsx}'",
     "commit": "cz"
   },
   "dependencies": {
@@ -23,6 +24,9 @@
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^9",
     "eslint-config-next": "15.5.2",
+    "postcss-styled-syntax": "^0.7.1",
+    "stylelint": "^16.23.1",
+    "stylelint-config-standard": "^39.0.0",
     "typescript": "^5"
   },
   "config": {
