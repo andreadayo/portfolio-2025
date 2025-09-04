@@ -4,6 +4,7 @@ import { MainPaddingWrapper } from "@components/PaddingWrapper/styles";
 import { Divider } from "@components/Divider";
 import {
   FooterContainer,
+  ThanksContainer,
   TwoColumns,
   MessageContainer,
   MessageText,
@@ -25,6 +26,9 @@ export default function Footer() {
     <MainPaddingWrapper>
       <FooterContainer>
         <Divider type="black">Contact</Divider>
+
+        {/* Thanks */}
+        <ThanksContainer>Thanks</ThanksContainer>
 
         {/* Email */}
         <TwoColumns>

@@ -12,21 +12,35 @@ export const FooterContainer = styled.div`
   height: 100vh;
   display: flex;
   flex-direction: column;
+  outline: 0.125rem solid ${({ theme }) => theme.borderColor};
+`;
+
+export const ThanksContainer = styled.div`
+  flex-grow: 1;
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 export const TwoColumns = styled.div`
   width: 100%;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   justify-content: center;
   align-items: center;
-  border: 0.125rem solid ${({ theme }) => theme.borderColor};
+
+  outline: 0.125rem solid ${({ theme }) => theme.borderColor};
 `;
 
 export const MessageContainer = styled.div`
-  width: 50%;
+  width: 100%;
   height: 100%;
   padding: 1.5rem 3.25rem;
-  border-right: 0.125rem solid ${({ theme }) => theme.borderColor};
+
+  outline: 0.125rem solid ${({ theme }) => theme.borderColor};
 `;
 
 export const MessageText = styled(BodyLG)`
@@ -34,7 +48,7 @@ export const MessageText = styled(BodyLG)`
 `;
 
 export const EmailLink = styled.div`
-  width: 50%;
+  width: 100%;
   height: 100%;
   padding: 1.5rem 0;
   display: flex;
@@ -61,7 +75,7 @@ export const Icon = styled.div`
 `;
 
 export const Column = styled.div`
-  width: 50%;
+  width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -69,7 +83,8 @@ export const Column = styled.div`
   justify-content: center;
 
   &:first-of-type {
-    border-right: 0.125rem solid ${({ theme }) => theme.borderColor};
+    outline: 0.125rem solid ${({ theme }) => theme.borderColor};
+    z-index: 10;
   }
 `;
 
@@ -91,8 +106,6 @@ export const CopyrightContainer = styled.div`
   height: 2.25rem;
   display: flex;
   align-items: center;
-  border: 0.125rem solid ${({ theme }) => theme.borderColor};
-  border-top: none;
 `;
 
 export const CopyrightWrapper = styled.div`

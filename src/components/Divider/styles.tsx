@@ -7,7 +7,6 @@ export const DividerContainer = styled.div`
   height: 2.25rem;
   display: flex;
   align-items: center;
-  border-right: 0.125rem solid ${({ theme }) => theme.borderColor};
 `;
 
 export const Title = styled.div<{ type: "black" | "yellow" }>`
@@ -18,7 +17,8 @@ export const Title = styled.div<{ type: "black" | "yellow" }>`
   align-items: center;
   background-color: ${({ theme, type }) =>
     type === "black" ? theme.invertedBGColor : theme.accentColor};
-  border-left: 0.125rem solid ${({ theme }) => theme.borderColor};
+
+  outline: 0.125rem solid ${({ theme }) => theme.borderColor};
 `;
 
 export const Text = styled(SubtitleSM)<{ type: "black" | "yellow" }>`
@@ -41,7 +41,6 @@ export const Button = styled.button`
   align-items: center;
   justify-content: center;
   background-color: ${({ theme }) => theme.accentColor};
-  border-left: 0.125rem solid ${({ theme }) => theme.borderColor};
   border: none;
   cursor: pointer;
 `;
