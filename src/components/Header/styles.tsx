@@ -4,12 +4,16 @@ import { SubtitleSM } from "@tokens/typography";
 export const HeaderContainer = styled.div`
   position: relative;
   width: 100%;
-  height: 3.25rem;
+  height: 2.5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
   background-color: ${({ theme }) => theme.bgColor};
   outline: 0.125rem solid ${({ theme }) => theme.borderColor};
+
+  @media only screen and (min-width: ${({ theme }) => theme?.breakpoint?.sm}) {
+    height: 3.25rem;
+  }
 
   @media only screen and (min-width: ${({ theme }) => theme?.breakpoint?.lg}) {
     display: grid;
@@ -26,13 +30,18 @@ export const HeaderContainer = styled.div`
 `;
 
 export const Logo = styled.div`
-  width: 3.25rem;
-  height: 3.25rem;
+  width: 2.5rem;
+  height: 2.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: ${({ theme }) => theme.accentColor};
   outline: 0.125rem solid ${({ theme }) => theme.borderColor};
+
+  @media only screen and (min-width: ${({ theme }) => theme?.breakpoint?.sm}) {
+    width: 3.25rem;
+    height: 3.25rem;
+  }
 `;
 
 export const Text = styled(SubtitleSM)`
@@ -42,7 +51,7 @@ export const Text = styled(SubtitleSM)`
 export const HeaderActions = styled.div<{ open?: boolean }>`
   z-index: 10;
   position: absolute;
-  top: 3.25rem;
+  top: 2.5rem;
   left: 0;
   width: 100%;
   height: auto;
@@ -51,9 +60,14 @@ export const HeaderActions = styled.div<{ open?: boolean }>`
   flex-direction: column;
   align-items: center;
 
+  @media only screen and (min-width: ${({ theme }) => theme?.breakpoint?.sm}) {
+    top: 3.25rem;
+  }
+
   @media only screen and (min-width: ${({ theme }) => theme?.breakpoint?.lg}) {
     position: static;
     height: 3.25rem;
+    display: flex;
     flex-direction: row;
     outline: 0.125rem solid ${({ theme }) => theme.borderColor};
   }
@@ -82,7 +96,7 @@ export const LinksContainer = styled.div`
 export const Status = styled.div`
   position: relative;
   width: 100%;
-  height: 3.25rem;
+  height: 2.5rem;
   padding: 1rem 2rem;
   display: flex;
   align-items: center;
@@ -106,7 +120,8 @@ export const Status = styled.div`
   }
 
   @media only screen and (min-width: ${({ theme }) => theme?.breakpoint?.lg}) {
-    flex: 1;
+    width: auto;
+    height: 3.25rem;
   }
 `;
 
@@ -120,7 +135,7 @@ export const Circle = styled.div`
 
 export const Button = styled.button`
   width: 100%;
-  height: 3.25rem;
+  height: 2.5rem;
   padding: 1rem 1.5rem;
   display: flex;
   align-items: center;
@@ -128,6 +143,10 @@ export const Button = styled.button`
   background-color: ${({ theme }) => theme.invertedBGColor};
   color: ${({ theme }) => theme.invertedContentColor};
   border: none;
+
+  @media only screen and (min-width: ${({ theme }) => theme?.breakpoint?.sm}) {
+    height: 3.25rem;
+  }
 
   @media only screen and (min-width: ${({ theme }) => theme?.breakpoint?.lg}) {
     width: max-content;
