@@ -4,7 +4,9 @@ import { SubtitleSM } from "@tokens/typography";
 export const HeaderContainer = styled.div`
   position: relative;
   width: 100%;
+  max-width: 1440px;
   height: 2.5rem;
+  margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -25,7 +27,7 @@ export const HeaderContainer = styled.div`
   }
 
   @media only screen and (min-width: ${({ theme }) => theme?.breakpoint?.xxl}) {
-    grid-template-columns: 5fr 4fr;
+    grid-template-columns: 5fr 4.5fr;
   }
 `;
 
@@ -86,7 +88,7 @@ export const LinksContainer = styled.div`
   outline: 0.063rem solid ${({ theme }) => theme.borderColor};
 
   @media only screen and (min-width: ${({ theme }) => theme?.breakpoint?.lg}) {
-    flex: 1;
+    width: 16.375rem;
     height: 3.25rem;
     flex-direction: row;
     align-items: center;
@@ -120,7 +122,8 @@ export const Status = styled.div`
   }
 
   @media only screen and (min-width: ${({ theme }) => theme?.breakpoint?.lg}) {
-    width: auto;
+    flex: 1;
+    width: 100%;
     height: 3.25rem;
   }
 `;
@@ -164,12 +167,12 @@ export const MenuButton = styled.button`
   color: ${({ theme }) => theme.invertedContentColor};
   border: none;
 
-  @media only screen and (min-width: ${({ theme }) => theme?.breakpoint?.lg}) {
-    display: none;
+  @media only screen and (min-width: ${({ theme }) => theme?.breakpoint?.sm}) {
+    width: 3.25rem;
+    height: 3.25rem;
   }
 
   @media only screen and (min-width: ${({ theme }) => theme?.breakpoint?.lg}) {
-    width: 3.25rem;
-    height: 3.25rem;
+    display: none;
   }
 `;
