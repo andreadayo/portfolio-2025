@@ -1,26 +1,34 @@
 import styled from "styled-components";
 
-import { SubtitleSM } from "@tokens/typography";
+import { SubtitleXS } from "@tokens/typography";
 
 export const DividerContainer = styled.div`
   width: 100%;
-  height: 2.25rem;
+  height: 1.75rem;
   display: flex;
   align-items: center;
+
+  @media only screen and (min-width: ${({ theme }) => theme?.breakpoint?.sm}) {
+    height: 2.25rem;
+  }
 `;
 
 export const Title = styled.div<{ type: "black" | "yellow" }>`
   flex-grow: 1;
   height: 100%;
-  padding: 0.625rem 1rem;
+  padding: 0.5rem 0.75rem;
   display: flex;
   align-items: center;
   background-color: ${({ theme, type }) =>
     type === "black" ? theme.invertedBGColor : theme.accentColor};
-  outline: 0.125rem solid ${({ theme }) => theme.borderColor};
+  outline: 0.063rem solid ${({ theme }) => theme.borderColor};
+
+  @media only screen and (min-width: ${({ theme }) => theme?.breakpoint?.sm}) {
+    padding: 0.625rem 1rem;
+  }
 `;
 
-export const Text = styled(SubtitleSM)<{ type: "black" | "yellow" }>`
+export const Text = styled(SubtitleXS)<{ type: "black" | "yellow" }>`
   color: ${({ theme, type }) =>
     type === "black" ? theme.invertedContentColor : theme.contentColor};
   text-transform: uppercase;
@@ -44,7 +52,11 @@ export const Button = styled.button`
   cursor: pointer;
 `;
 
-export const Action = styled(SubtitleSM)`
+export const Action = styled(SubtitleXS)`
   color: ${({ theme }) => theme.contentColor};
   text-transform: uppercase;
+
+  @media only screen and (min-width: ${({ theme }) => theme?.breakpoint?.sm}) {
+    font-size: ${({ theme }) => theme.fontSize.sm};
+  }
 `;

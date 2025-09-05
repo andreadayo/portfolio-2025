@@ -1,18 +1,12 @@
 import styled from "styled-components";
-import {
-  TitleGigantic,
-  SubtitleSM,
-  BodyLG,
-  BodyBase,
-  BodyXS,
-} from "@tokens/typography";
+import { TitleXL, SubtitleSM, BodyXS, BodyBase } from "@tokens/typography";
 
 export const FooterContainer = styled.div`
   width: 100%;
   height: 100vh;
   display: flex;
   flex-direction: column;
-  outline: 0.125rem solid ${({ theme }) => theme.borderColor};
+  outline: 0.063rem solid ${({ theme }) => theme.borderColor};
 `;
 
 export const ThanksContainer = styled.div`
@@ -27,21 +21,33 @@ export const ThanksContainer = styled.div`
 export const TwoColumns = styled.div`
   width: 100%;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   justify-content: center;
   align-items: center;
-  outline: 0.125rem solid ${({ theme }) => theme.borderColor};
+  outline: 0.063rem solid ${({ theme }) => theme.borderColor};
+
+  @media only screen and (min-width: ${({ theme }) => theme?.breakpoint?.lg}) {
+    grid-template-columns: 1fr 1fr;
+  }
 `;
 
 export const MessageContainer = styled.div`
   width: 100%;
   height: 100%;
-  padding: 1.5rem 3.25rem;
-  outline: 0.125rem solid ${({ theme }) => theme.borderColor};
+  padding: 1rem 1.5rem;
+  outline: 0.063rem solid ${({ theme }) => theme.borderColor};
+
+  @media only screen and (min-width: ${({ theme }) => theme?.breakpoint?.sm}) {
+    padding: 1.5rem 3.25rem;
+  }
 `;
 
-export const MessageText = styled(BodyLG)`
+export const MessageText = styled(BodyBase)`
   color: ${({ theme }) => theme.contentColor};
+
+  @media only screen and (min-width: ${({ theme }) => theme?.breakpoint?.sm}) {
+    font-size: ${({ theme }) => theme.fontSize.lg};
+  }
 `;
 
 export const EmailLink = styled.div`
@@ -51,24 +57,37 @@ export const EmailLink = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 1.5rem;
+  gap: 1rem;
   overflow-x: hidden;
 
   &:hover {
     background: ${({ theme }) => theme.color.gradientYellow};
   }
+
+  @media only screen and (min-width: ${({ theme }) => theme?.breakpoint?.sm}) {
+    gap: 1.5rem;
+  }
 `;
 
-export const Address = styled(TitleGigantic)`
+export const Address = styled(TitleXL)`
   color: ${({ theme }) => theme.contentColor};
+
+  @media only screen and (min-width: ${({ theme }) => theme?.breakpoint?.sm}) {
+    font-size: ${({ theme }) => theme.fontSize.gigantic};
+  }
 `;
 
 export const Icon = styled.div`
   flex-shrink: 0;
-  width: 2rem;
-  height: 2rem;
+  width: 1.5rem;
+  height: 1.5rem;
   border-radius: 50%;
   background-color: ${({ theme }) => theme.color.grey};
+
+  @media only screen and (min-width: ${({ theme }) => theme?.breakpoint?.sm}) {
+    width: 2rem;
+    height: 2rem;
+  }
 `;
 
 export const Column = styled.div`
@@ -79,19 +98,26 @@ export const Column = styled.div`
   align-items: center;
   justify-content: center;
 
-  &:first-of-type {
-    outline: 0.125rem solid ${({ theme }) => theme.borderColor};
-    z-index: 10;
+  @media only screen and (min-width: ${({ theme }) => theme?.breakpoint?.lg}) {
+    &:first-of-type {
+      outline: 0.063rem solid ${({ theme }) => theme.borderColor};
+      z-index: 10;
+    }
   }
 `;
 
 export const LinksContainer = styled.div`
   width: 100%;
   height: 100%;
-  padding: 2rem 3.25rem;
+  padding: 1rem 1.5rem;
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 0.5rem;
+
+  @media only screen and (min-width: ${({ theme }) => theme?.breakpoint?.sm}) {
+    padding: 2rem 3.25rem;
+    gap: 0.75rem;
+  }
 `;
 
 export const LinkItem = styled(BodyBase)`

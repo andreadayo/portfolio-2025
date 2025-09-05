@@ -9,7 +9,7 @@ export const HeaderContainer = styled.div`
   align-items: center;
   justify-content: space-between;
   background-color: ${({ theme }) => theme.bgColor};
-  outline: 0.125rem solid ${({ theme }) => theme.borderColor};
+  outline: 0.063rem solid ${({ theme }) => theme.borderColor};
 
   @media only screen and (min-width: ${({ theme }) => theme?.breakpoint?.sm}) {
     height: 3.25rem;
@@ -36,7 +36,7 @@ export const Logo = styled.div`
   align-items: center;
   justify-content: center;
   background-color: ${({ theme }) => theme.accentColor};
-  outline: 0.125rem solid ${({ theme }) => theme.borderColor};
+  outline: 0.063rem solid ${({ theme }) => theme.borderColor};
 
   @media only screen and (min-width: ${({ theme }) => theme?.breakpoint?.sm}) {
     width: 3.25rem;
@@ -69,7 +69,7 @@ export const HeaderActions = styled.div<{ open?: boolean }>`
     height: 3.25rem;
     display: flex;
     flex-direction: row;
-    outline: 0.125rem solid ${({ theme }) => theme.borderColor};
+    outline: 0.063rem solid ${({ theme }) => theme.borderColor};
   }
 `;
 
@@ -83,7 +83,7 @@ export const LinksContainer = styled.div`
 
   gap: 2rem;
   background-color: ${({ theme }) => theme.bgColor};
-  outline: 0.125rem solid ${({ theme }) => theme.borderColor};
+  outline: 0.063rem solid ${({ theme }) => theme.borderColor};
 
   @media only screen and (min-width: ${({ theme }) => theme?.breakpoint?.lg}) {
     flex: 1;
@@ -103,7 +103,7 @@ export const Status = styled.div`
   justify-content: center;
   gap: 1rem;
   background-color: ${({ theme }) => theme.bgColor}; /* base */
-  outline: 0.125rem solid ${({ theme }) => theme.borderColor};
+  outline: 0.063rem solid ${({ theme }) => theme.borderColor};
 
   &::before {
     content: "";
@@ -155,8 +155,8 @@ export const Button = styled.button`
 
 export const MenuButton = styled.button`
   justify-self: flex-end;
-  width: 3.25rem;
-  height: 3.25rem;
+  width: 2.5rem;
+  height: 2.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -166,5 +166,10 @@ export const MenuButton = styled.button`
 
   @media only screen and (min-width: ${({ theme }) => theme?.breakpoint?.lg}) {
     display: none;
+  }
+
+  @media only screen and (min-width: ${({ theme }) => theme?.breakpoint?.lg}) {
+    width: 3.25rem;
+    height: 3.25rem;
   }
 `;
