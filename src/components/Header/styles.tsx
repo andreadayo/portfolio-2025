@@ -2,14 +2,27 @@ import styled from "styled-components";
 import { SubtitleSM } from "@tokens/typography";
 
 export const HeaderContainer = styled.div`
+  position: relative;
   width: 100%;
   height: 3.25rem;
-  display: grid;
-  grid-template-columns: 5fr 4fr;
+  display: flex;
   align-items: center;
   justify-content: space-between;
   background-color: ${({ theme }) => theme.bgColor};
   outline: 0.125rem solid ${({ theme }) => theme.borderColor};
+
+  @media only screen and (min-width: ${({ theme }) => theme?.breakpoint?.lg}) {
+    display: grid;
+    grid-template-columns: 2fr 4fr;
+  }
+
+  @media only screen and (min-width: ${({ theme }) => theme?.breakpoint?.xl}) {
+    grid-template-columns: 4.5fr 4.5fr;
+  }
+
+  @media only screen and (min-width: ${({ theme }) => theme?.breakpoint?.xxl}) {
+    grid-template-columns: 5fr 4fr;
+  }
 `;
 
 export const Logo = styled.div`
@@ -26,33 +39,75 @@ export const Text = styled(SubtitleSM)`
   text-transform: uppercase;
 `;
 
-export const RightContainer = styled.div`
-  height: 3.25rem;
+export const HeaderActions = styled.div<{ open?: boolean }>`
+  z-index: 10;
+  position: absolute;
+  top: 3.25rem;
+  left: 0;
+  width: 100%;
+  height: auto;
   justify-content: flex-end;
-  display: flex;
+  display: ${({ open }) => (open ? "flex" : "none")};
+  flex-direction: column;
   align-items: center;
-  outline: 0.125rem solid ${({ theme }) => theme.borderColor};
+
+  @media only screen and (min-width: ${({ theme }) => theme?.breakpoint?.lg}) {
+    position: static;
+    height: 3.25rem;
+    flex-direction: row;
+    outline: 0.125rem solid ${({ theme }) => theme.borderColor};
+  }
 `;
 
 export const LinksContainer = styled.div`
-  flex: 1;
-  height: 3.25rem;
+  width: 100%;
+  height: auto;
   padding: 1rem 1.5rem;
   display: flex;
-  align-items: center;
+  flex-direction: column;
   justify-content: center;
+
   gap: 2rem;
+  background-color: ${({ theme }) => theme.bgColor};
   outline: 0.125rem solid ${({ theme }) => theme.borderColor};
+
+  @media only screen and (min-width: ${({ theme }) => theme?.breakpoint?.lg}) {
+    flex: 1;
+    height: 3.25rem;
+    flex-direction: row;
+    align-items: center;
+  }
 `;
 
 export const Status = styled.div`
+  position: relative;
+  width: 100%;
   height: 3.25rem;
   padding: 1rem 2rem;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 1rem;
-  background: ${({ theme }) => theme.color.gradientYellow};
+  background-color: ${({ theme }) => theme.bgColor}; /* base */
+  outline: 0.125rem solid ${({ theme }) => theme.borderColor};
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: ${({ theme }) => theme.color.gradientYellow}; /* overlay */
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  > * {
+    position: relative;
+    z-index: 1; /* ensure content stays above gradient */
+  }
+
+  @media only screen and (min-width: ${({ theme }) => theme?.breakpoint?.lg}) {
+    flex: 1;
+  }
 `;
 
 export const Circle = styled.div`
@@ -64,7 +119,7 @@ export const Circle = styled.div`
 `;
 
 export const Button = styled.button`
-  width: max-content;
+  width: 100%;
   height: 3.25rem;
   padding: 1rem 1.5rem;
   display: flex;
@@ -73,4 +128,24 @@ export const Button = styled.button`
   background-color: ${({ theme }) => theme.invertedBGColor};
   color: ${({ theme }) => theme.invertedContentColor};
   border: none;
+
+  @media only screen and (min-width: ${({ theme }) => theme?.breakpoint?.lg}) {
+    width: max-content;
+  }
+`;
+
+export const MenuButton = styled.button`
+  justify-self: flex-end;
+  width: 3.25rem;
+  height: 3.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: ${({ theme }) => theme.invertedBGColor};
+  color: ${({ theme }) => theme.invertedContentColor};
+  border: none;
+
+  @media only screen and (min-width: ${({ theme }) => theme?.breakpoint?.lg}) {
+    display: none;
+  }
 `;

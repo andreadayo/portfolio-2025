@@ -1,18 +1,22 @@
 "use client";
 
+import { useState } from "react";
 import { PaddingWrapper } from "@components/PaddingWrapper/styles";
 import {
   HeaderContainer,
   Logo,
   Text,
-  RightContainer,
+  HeaderActions,
   LinksContainer,
   Status,
   Circle,
   Button,
+  MenuButton,
 } from "./styles";
 
 export default function Header() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
     <PaddingWrapper>
       <HeaderContainer>
@@ -22,7 +26,7 @@ export default function Header() {
         </Logo>
 
         {/* Right */}
-        <RightContainer>
+        <HeaderActions open={menuOpen}>
           <LinksContainer>
             <Text>Home</Text>
             <Text>About</Text>
@@ -35,7 +39,12 @@ export default function Header() {
           <Button>
             <Text>Contact</Text>
           </Button>
-        </RightContainer>
+        </HeaderActions>
+
+        {/* MenuButton */}
+        <MenuButton onClick={() => setMenuOpen((prev) => !prev)}>
+          {menuOpen ? "X" : "☰"}
+        </MenuButton>
       </HeaderContainer>
     </PaddingWrapper>
   );
