@@ -7,6 +7,7 @@ export const DividerContainer = styled.div`
   height: 1.75rem;
   display: flex;
   align-items: center;
+  z-index: 10;
 
   @media only screen and (min-width: ${({ theme }) => theme?.breakpoint?.sm}) {
     height: 2.25rem;

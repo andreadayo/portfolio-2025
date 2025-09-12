@@ -8,6 +8,10 @@ const Title = styled.span`
   letter-spacing: 0;
 `;
 
+export const TitleXXXGigantic = styled(Title)`
+  font-size: ${({ theme }) => theme?.fontSize?.xxxgigantic};
+`;
+
 export const TitleXGigantic = styled(Title)`
   font-size: ${({ theme }) => theme?.fontSize?.xgiganticPlus};
 `;

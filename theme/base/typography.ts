@@ -14,7 +14,7 @@ const baseTemplate = {
     xgigantic: "3.50rem" /* 56px */,
     xgiganticPlus: "4.00rem" /* 64px */,
     xxgigantic: "4.250rem" /* 68px */,
-    xxxgigantic: "6rem" /* 96px */,
+    xxxgigantic: "7.5rem" /* 120px */,
   },
 };
 

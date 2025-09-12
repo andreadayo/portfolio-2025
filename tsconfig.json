@@ -20,6 +20,7 @@
     ],
     "paths": {
       "@/*": ["./*"],
+      "@assets/*": ["./public/assets/*"],
       "@components/*": ["./src/components/*"],
       "@theme/*": ["./theme/*"],
       "@tokens/*": ["./tokens/*"]
