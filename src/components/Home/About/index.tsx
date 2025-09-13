@@ -17,7 +17,9 @@ export default function About() {
         01 About Me
       </Divider>
       <AboutContainer>
-        <ElementsContainer />
+        <ElementsContainer>
+          {/* TODO: Add falling elements animation */}
+        </ElementsContainer>
         <TextContainer>
           <Heading>I design. I code. I build.</Heading>
           <Text>

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { TitleXL, TitleSM } from "@tokens/typography";
+import { TitleXL, TitleBase } from "@tokens/typography";
 
 export const HeroContainer = styled.div`
   width: 100%;
@@ -63,7 +63,7 @@ export const HeroSmallTextContainer = styled.div`
   height: 100%;
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
+  gap: 0.15rem;
   background-color: ${({ theme }) => theme.bgColor};
 `;
 
@@ -84,12 +84,8 @@ export const HeroText = styled(TitleXL)`
   }
 `;
 
-export const HeroSmallText = styled(TitleSM)`
+export const HeroSmallText = styled(TitleBase)`
   color: ${({ theme }) => theme.contentColor};
-
-  @media only screen and (min-width: ${({ theme }) => theme?.breakpoint?.sm}) {
-    font-size: ${({ theme }) => theme.fontSize.base};
-  }
 `;
 
 export const HeroImageContainer = styled.div`
