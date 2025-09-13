@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { TitleXL, SubtitleSM, BodyXS, BodyBase } from "@tokens/typography";
+import { TitleXL, SubtitleXS, BodyXS, BodyBase } from "@tokens/typography";
 
 export const FooterContainer = styled.div`
   width: 100%;
@@ -154,7 +154,11 @@ export const Button = styled.button`
   border: none;
 `;
 
-export const Label = styled(SubtitleSM)`
+export const Label = styled(SubtitleXS)`
   color: ${({ theme }) => theme.invertedContentColor};
   text-transform: uppercase;
+
+  @media only screen and (min-width: ${({ theme }) => theme?.breakpoint?.sm}) {
+    font-size: ${({ theme }) => theme.fontSize.sm};
+  }
 `;

@@ -12,7 +12,7 @@ export const HeroContainer = styled.div`
   outline: 0.063rem solid ${({ theme }) => theme.borderColor};
 
   @media only screen and (min-width: ${({ theme }) => theme?.breakpoint?.xs}) {
-    height: 32rem;
+    height: 28rem;
   }
 
   @media only screen and (min-width: ${({ theme }) => theme?.breakpoint?.md}) {

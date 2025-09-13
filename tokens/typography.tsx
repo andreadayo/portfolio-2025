@@ -11,7 +11,9 @@ const Title = styled.span`
 export const TitleXXXGigantic = styled(Title)`
   font-size: ${({ theme }) => theme?.fontSize?.xxxgigantic};
 `;
-
+export const TitleXXGigantic = styled(Title)`
+  font-size: ${({ theme }) => theme?.fontSize?.xxgigantic};
+`;
 export const TitleXGigantic = styled(Title)`
   font-size: ${({ theme }) => theme?.fontSize?.xgiganticPlus};
 `;
