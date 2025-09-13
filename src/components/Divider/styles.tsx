@@ -49,6 +49,7 @@ export const Button = styled.button`
   align-items: center;
   justify-content: center;
   background-color: ${({ theme }) => theme.accentColor};
+  outline: 0.063rem solid ${({ theme }) => theme.borderColor};
   border: none;
   cursor: pointer;
 `;
