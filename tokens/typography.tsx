@@ -36,6 +36,9 @@ export const TitleMD = styled(Title)`
 export const TitleBase = styled(Title)`
   font-size: ${({ theme }) => theme?.fontSize?.base};
 `;
+export const TitleSM = styled(Title)`
+  font-size: ${({ theme }) => theme?.fontSize?.sm};
+`;
 export const TitleXS = styled(Title)`
   font-size: ${({ theme }) => theme?.fontSize?.xs};
 `;
