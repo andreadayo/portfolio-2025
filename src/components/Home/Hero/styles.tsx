@@ -69,6 +69,7 @@ export const HeroSmallTextContainer = styled.div`
 
 export const HeroTextFirst = styled.div`
   display: flex;
+  align-items: center;
   gap: 1rem;
 `;
 
