@@ -3,19 +3,13 @@ import { TitleXL, SubtitleXS, BodyXS, BodyBase } from "@tokens/typography";
 
 export const FooterContainer = styled.div`
   width: 100%;
-  height: 100vh;
   display: flex;
   flex-direction: column;
   outline: 0.063rem solid ${({ theme }) => theme.borderColor};
 `;
 
 export const ThanksContainer = styled.div`
-  flex-grow: 1;
   width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 `;
 
 export const TwoColumns = styled.div`

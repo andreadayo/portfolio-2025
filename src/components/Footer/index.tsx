@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { PaddingWrapper } from "@components/PaddingWrapper/styles";
 import { Divider } from "@components/Divider";
 import {
@@ -28,7 +29,15 @@ export default function Footer() {
         <Divider type="black">Contact</Divider>
 
         {/* Thanks */}
-        <ThanksContainer>Thanks</ThanksContainer>
+        <ThanksContainer>
+          <Image
+            src="/assets/Thanks Footer.svg"
+            alt="Thanks Image"
+            width={1376}
+            height={408}
+            style={{ width: "100%", height: "auto", objectFit: "contain" }}
+          />
+        </ThanksContainer>
 
         {/* Email */}
         <TwoColumns>
