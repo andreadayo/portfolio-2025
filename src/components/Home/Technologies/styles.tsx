@@ -55,11 +55,7 @@ const boxBase = css`
   gap: 1.5rem;
   background: ${({ theme }) => theme.color.gradientYellow};
   outline: 0.063rem solid ${({ theme }) => theme.borderColor};
-
-  &::after {
-    inset: unset;
-    border: none;
-  }
+  border: none;
 
   @media only screen and (min-width: ${({ theme }) => theme?.breakpoint?.sm}) {
     padding: 3.5rem 2.5rem;
@@ -67,14 +63,7 @@ const boxBase = css`
 
   @media only screen and (min-width: ${({ theme }) => theme?.breakpoint?.md}) {
     outline: none;
-
-    &::after {
-      content: "";
-      position: absolute;
-      inset: -0.063rem;
-      border: 0.063rem solid ${({ theme }) => theme.borderColor};
-      pointer-events: none;
-    }
+    border: 0.063rem solid ${({ theme }) => theme.borderColor};
   }
 
   @media only screen and (min-width: ${({ theme }) => theme?.breakpoint?.xl}) {
@@ -88,8 +77,8 @@ export const Box1 = styled.div`
   border-left: none;
 
   @media only screen and (min-width: ${({ theme }) => theme?.breakpoint?.md}) {
-    margin-left: 0.03rem;
-    border-left: none;
+    width: calc(100% + 0.126rem);
+    margin-left: -0.063rem;
     grid-row: 1 / span 2;
     grid-column: 1;
   }
@@ -102,8 +91,8 @@ export const Box2 = styled.div`
   margin-left: 0;
 
   @media only screen and (min-width: ${({ theme }) => theme?.breakpoint?.md}) {
-    width: calc(100% - 0.063rem);
-    margin-left: 0.063rem;
+    width: calc(100% + 0.063rem);
+    margin-left: 0.03rem;
     margin-top: 0;
     grid-row: 2 / span 2;
     grid-column: 2;
@@ -117,7 +106,7 @@ export const Box3 = styled.div`
   margin-left: 0;
 
   @media only screen and (min-width: ${({ theme }) => theme?.breakpoint?.md}) {
-    width: calc(100% - 0.063rem);
+    width: calc(100% + 0.003rem);
     margin-left: 0.063rem;
     margin-top: 0;
     grid-row: 3 / span 2;
