@@ -42,14 +42,19 @@ export const Text = styled(SubtitleXS)<{ type: "black" | "yellow" }>`
 
 export const Button = styled.button`
   width: max-content;
-  height: 100%;
+  height: 1.75rem;
   padding: 0.625rem 1rem;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: ${({ theme }) => theme.accentColor};
+  outline: 0.063rem solid ${({ theme }) => theme.borderColor};
   border: none;
   cursor: pointer;
+
+  @media only screen and (min-width: ${({ theme }) => theme?.breakpoint?.sm}) {
+    height: 2.25rem;
+  }
 `;
 
 export const Action = styled(SubtitleXS)`

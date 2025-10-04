@@ -1,21 +1,15 @@
 import styled from "styled-components";
-import { TitleXL, SubtitleSM, BodyXS, BodyBase } from "@tokens/typography";
+import { TitleXL, SubtitleXS, BodyXS, BodyBase } from "@tokens/typography";
 
 export const FooterContainer = styled.div`
   width: 100%;
-  height: 100vh;
   display: flex;
   flex-direction: column;
   outline: 0.063rem solid ${({ theme }) => theme.borderColor};
 `;
 
 export const ThanksContainer = styled.div`
-  flex-grow: 1;
   width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 `;
 
 export const TwoColumns = styled.div`
@@ -154,7 +148,11 @@ export const Button = styled.button`
   border: none;
 `;
 
-export const Label = styled(SubtitleSM)`
+export const Label = styled(SubtitleXS)`
   color: ${({ theme }) => theme.invertedContentColor};
   text-transform: uppercase;
+
+  @media only screen and (min-width: ${({ theme }) => theme?.breakpoint?.sm}) {
+    font-size: ${({ theme }) => theme.fontSize.sm};
+  }
 `;

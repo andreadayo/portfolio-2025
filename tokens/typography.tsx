@@ -8,6 +8,12 @@ const Title = styled.span`
   letter-spacing: 0;
 `;
 
+export const TitleXXXGigantic = styled(Title)`
+  font-size: ${({ theme }) => theme?.fontSize?.xxxgigantic};
+`;
+export const TitleXXGigantic = styled(Title)`
+  font-size: ${({ theme }) => theme?.fontSize?.xxgigantic};
+`;
 export const TitleXGigantic = styled(Title)`
   font-size: ${({ theme }) => theme?.fontSize?.xgiganticPlus};
 `;
@@ -31,6 +37,9 @@ export const TitleMD = styled(Title)`
 `;
 export const TitleBase = styled(Title)`
   font-size: ${({ theme }) => theme?.fontSize?.base};
+`;
+export const TitleSM = styled(Title)`
+  font-size: ${({ theme }) => theme?.fontSize?.sm};
 `;
 export const TitleXS = styled(Title)`
   font-size: ${({ theme }) => theme?.fontSize?.xs};
