@@ -2,6 +2,7 @@ import { PaddingWrapper } from "@components/PaddingWrapper/styles";
 import Hero from "@components/Home/Hero";
 import About from "@components/Home/About";
 import Technologies from "@components/Home/Technologies";
+import Projects from "@components/Home/Projects";
 
 export default function Home() {
   return (
@@ -10,6 +11,7 @@ export default function Home() {
         <Hero />
         <About />
         <Technologies />
+        <Projects />
       </PaddingWrapper>
     </>
   );
