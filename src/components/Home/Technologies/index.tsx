@@ -1,53 +1,28 @@
 "use client";
 
-import { Divider } from "@components/Divider";
-import {
-  TechnologiesContainer,
-  Box1,
-  Box2,
-  Box3,
-  Circle,
-  TextContainer,
-  Title,
-  Description,
-} from "./styles";
+import BoxStairs from "@components/BoxStairs";
 
-export default function About() {
+export default function Technologies() {
   return (
     <>
-      <Divider type="black">02 Technologies</Divider>
-      <TechnologiesContainer>
-        <Box1>
-          <Circle />
-          <TextContainer>
-            <Title>Design</Title>
-            <Description>
-              Figma, Photoshop, Premiere Pro, Canva, Spline
-            </Description>
-          </TextContainer>
-        </Box1>
-        <Box2>
-          {" "}
-          <Circle />
-          <TextContainer>
-            <Title>Frontend</Title>
-            <Description>
-              JavaScript, TypeScript, React, Next.js, Bootstrap, Tailwind CSS,
-              Motion, GSAP
-            </Description>
-          </TextContainer>
-        </Box2>
-        <Box3>
-          {" "}
-          <Circle />
-          <TextContainer>
-            <Title>Backend</Title>
-            <Description>
-              Node.js, PHP, SQL, Java, Python, Laravel, Sanity
-            </Description>
-          </TextContainer>
-        </Box3>
-      </TechnologiesContainer>
+      <BoxStairs
+        title="02 My Technologies"
+        boxes={[
+          {
+            title: "Design",
+            description: "Figma, Photoshop, Premiere Pro, Canva, Spline",
+          },
+          {
+            title: "Frontend",
+            description:
+              "JavaScript, TypeScript, React, Next.js, Bootstrap, Tailwind CSS, Motion, GSAP",
+          },
+          {
+            title: "Backend",
+            description: "Node.js, PHP, SQL, Java, Python, Laravel, Sanity",
+          },
+        ]}
+      />
     </>
   );
 }
