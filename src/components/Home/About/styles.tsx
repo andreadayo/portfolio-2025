@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { TitleXL, BodyBase } from "@tokens/typography";
 
+// TODO: Reuse styles from Home/About
 export const AboutContainer = styled.div`
   width: 100%;
   height: max-content;
