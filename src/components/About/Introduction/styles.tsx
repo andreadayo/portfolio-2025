@@ -14,8 +14,7 @@ export const AboutContainer = styled.div`
 
   @media only screen and (min-width: ${({ theme }) => theme?.breakpoint?.lg}) {
     grid-template-rows: unset;
-    grid-template-columns: 1fr 2fr;
-    grid-template-areas: "first second";
+    grid-template-columns: 2fr 1fr;
   }
 `;
 
@@ -23,7 +22,6 @@ export const ElementsContainer = styled.div`
   grid-area: first;
   width: 100%;
   height: 100%;
-  outline: 0.063rem solid ${({ theme }) => theme.borderColor};
 `;
 export const TextContainer = styled.div`
   grid-area: second;
@@ -33,6 +31,7 @@ export const TextContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
+  outline: 0.063rem solid ${({ theme }) => theme.borderColor};
 
   @media only screen and (min-width: ${({ theme }) => theme?.breakpoint?.sm}) {
     padding: 3.5rem 2.5rem;
