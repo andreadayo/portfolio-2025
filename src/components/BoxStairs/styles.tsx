@@ -7,8 +7,8 @@ export const StairsContainer = styled.div`
   grid-template-columns: repeat(1, 1fr);
   grid-template-rows: repeat(3, 1fr);
   gap: -0.063rem;
-  outline: 0.063rem solid ${({ theme }) => theme.borderColor};
   position: relative;
+  outline: 0.063rem solid ${({ theme }) => theme.borderColor};
 
   @media only screen and (min-width: ${({ theme }) => theme?.breakpoint?.md}) {
     grid-template-columns: repeat(3, 1fr);
@@ -48,22 +48,32 @@ export const StairsContainer = styled.div`
 `;
 
 export const Box = styled.div`
+  position: relative;
   padding: 2.25rem 1.5rem;
-
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  background: ${({ theme }) => theme.color.gradientYellow};
-  outline: 0.063rem solid ${({ theme }) => theme.borderColor};
-  border: none;
+  background: ${({ theme }) => theme.bgColor};
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: ${({ theme }) => theme.color.gradientYellow};
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  > * {
+    position: relative;
+    z-index: 1;
+  }
 
   @media only screen and (min-width: ${({ theme }) => theme?.breakpoint?.sm}) {
     padding: 3.5rem 2.5rem;
-  }
-
-  @media only screen and (min-width: ${({ theme }) => theme?.breakpoint?.md}) {
-    outline: none;
-    border: 0.063rem solid ${({ theme }) => theme.borderColor};
   }
 
   @media only screen and (min-width: ${({ theme }) => theme?.breakpoint?.xl}) {
@@ -71,43 +81,29 @@ export const Box = styled.div`
   }
 
   &.box-1 {
-    margin-left: 0;
-    border-left: none;
-
+    outline: 0.063rem solid ${({ theme }) => theme.borderColor};
+    z-index: 10;
     @media only screen and (min-width: ${({ theme }) =>
         theme?.breakpoint?.md}) {
-      width: calc(100% + 0.126rem);
-      margin-left: -0.063rem;
       grid-row: 1 / span 2;
       grid-column: 1;
     }
   }
 
   &.box-2 {
-    width: 100%;
-    margin-top: 0.063rem;
-    margin-left: 0;
-
+    border: none;
     @media only screen and (min-width: ${({ theme }) =>
         theme?.breakpoint?.md}) {
-      width: calc(100% + 0.063rem);
-      margin-left: 0.03rem;
-      margin-top: 0;
+      border: 0.063rem solid ${({ theme }) => theme.borderColor};
       grid-row: 2 / span 2;
       grid-column: 2;
     }
   }
 
   &.box-3 {
-    width: 100%;
-    margin-top: 0.063rem;
-    margin-left: 0;
-
+    outline: 0.063rem solid ${({ theme }) => theme.borderColor};
     @media only screen and (min-width: ${({ theme }) =>
         theme?.breakpoint?.md}) {
-      width: calc(100% + 0.003rem);
-      margin-left: 0.063rem;
-      margin-top: 0;
       grid-row: 3 / span 2;
       grid-column: 3;
     }
