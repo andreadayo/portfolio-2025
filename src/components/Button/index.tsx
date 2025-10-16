@@ -1,30 +1,45 @@
-import Link from "next/link";
-import { ButtonContainer, Text } from "./styles";
+import {
+  ButtonContainer,
+  ButtonText,
+  Text,
+  IconContainer,
+  Icon,
+} from "./styles";
 
 interface ButtonProps {
   icon?: string;
+  iconSize?: "small" | "medium" | "large";
   type?: "black" | "yellow" | "default";
   size: "fill" | "auto";
   children: React.ReactNode;
-  href?: string;
+  href: string;
 }
 
-// TODO: Add icon
-
-export function Button({ type, size, children, href }: ButtonProps) {
-  if (href) {
-    return (
-      <Link href={href}>
-        <ButtonContainer type={type} size={size}>
-          <Text type={type}>{children}</Text>
-        </ButtonContainer>
-      </Link>
-    );
-  }
-
+export function Button({
+  icon,
+  iconSize,
+  type,
+  size,
+  children,
+  href,
+}: ButtonProps) {
   return (
-    <ButtonContainer type={type} size={size}>
-      <Text type={type}>{children}</Text>
+    <ButtonContainer href={href} size={size}>
+      <ButtonText type={type}>
+        <Text type={type}>{children}</Text>
+      </ButtonText>
+
+      {icon && iconSize && (
+        <IconContainer>
+          <Icon
+            src={icon}
+            alt="Button Icon"
+            width={16}
+            height={16}
+            iconsize={iconSize}
+          />
+        </IconContainer>
+      )}
     </ButtonContainer>
   );
 }
