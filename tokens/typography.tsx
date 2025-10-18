@@ -80,6 +80,10 @@ export const SubtitleXS = styled(Subtitle)`
   font-size: ${({ theme }) => theme?.fontSize?.xs};
 `;
 
+export const SubtitleXXS = styled(Subtitle)`
+  font-size: ${({ theme }) => theme?.fontSize?.xxs};
+`;
+
 const Body = styled.span`
   font-family: ${neueMontreal.style.fontFamily}, Arial, sans-serif;
   font-style: normal;
