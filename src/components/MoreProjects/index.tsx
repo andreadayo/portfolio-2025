@@ -34,13 +34,17 @@ function ProjectItem() {
   );
 }
 
-export default function MoreProjects() {
+interface MoreProjectsProps {
+  count?: number;
+}
+
+export default function MoreProjects({ count = 0 }: MoreProjectsProps) {
   return (
     <>
       <Divider type="black">More Works</Divider>
       <GridContainer>
         {/*  Projects */}
-        {Array.from({ length: 6 }).map((_, index) => (
+        {Array.from({ length: count }).map((_, index) => (
           <ProjectItem key={index} />
         ))}
       </GridContainer>

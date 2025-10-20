@@ -1,7 +1,7 @@
 import { PaddingWrapper } from "@components/PaddingWrapper/styles";
 import Title from "@/src/components/Projects/Title";
 import List from "@/src/components/Projects/List";
-import More from "@/src/components/MoreProjects";
+import MoreProjects from "@/src/components/MoreProjects";
 
 export default function Projects() {
   return (
@@ -9,7 +9,7 @@ export default function Projects() {
       <PaddingWrapper>
         <Title />
         <List />
-        <More />
+        <MoreProjects count={6} />
       </PaddingWrapper>
     </>
   );
