@@ -12,7 +12,6 @@ export const InfoContainer = styled.div`
   gap: 0.75rem;
   background: ${({ theme }) => theme.bgColor};
   outline: 0.063rem solid ${({ theme }) => theme.borderColor};
-  z-index: 999; // above header
 
   @media only screen and (min-width: ${({ theme }) => theme?.breakpoint?.sm}) {
     gap: 1rem;
@@ -20,6 +19,10 @@ export const InfoContainer = styled.div`
 
   @media only screen and (min-width: ${({ theme }) => theme?.breakpoint?.md}) {
     padding: 2.25rem 2.5rem;
+  }
+
+  @media only screen and (min-width: ${({ theme }) => theme?.breakpoint?.lg}) {
+    z-index: 999; // above header
   }
 
   @media only screen and (min-width: 1300px) {
