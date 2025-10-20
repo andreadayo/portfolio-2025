@@ -34,7 +34,7 @@ function ProjectItem() {
   );
 }
 
-export default function More() {
+export default function MoreProjects() {
   return (
     <>
       <Divider type="black">More Works</Divider>
