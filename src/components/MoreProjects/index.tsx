@@ -23,7 +23,7 @@ function ProjectItem() {
         {/* TODO: Display ArrowBox on hover */}
         <ArrowBox>
           <ArrowIcon
-            src="assets/icons/arrow-right.svg"
+            src="/assets/icons/arrow-right.svg"
             alt="Arrow Right"
             width={16}
             height={16}
