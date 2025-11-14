@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { ThemeProviderWrapper } from "@components/ThemeProviderWrapper";
 import Header from "@components/Header";
 import Footer from "@components/Footer";
+import StyledComponentsRegistry from "@components/StyledComponentsRegistry";
 
 export const metadata: Metadata = {
   title: "Andrea Dayo | Portfolio",
@@ -16,11 +17,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <ThemeProviderWrapper>
-          <Header />
-          {children}
-          <Footer />
-        </ThemeProviderWrapper>
+        <StyledComponentsRegistry>
+          <ThemeProviderWrapper>
+            <Header />
+            {children}
+            <Footer />
+          </ThemeProviderWrapper>
+        </StyledComponentsRegistry>
       </body>
     </html>
   );
