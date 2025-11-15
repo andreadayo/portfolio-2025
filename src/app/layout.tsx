@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { ThemeProviderWrapper } from "@components/ThemeProviderWrapper";
-import Header from "@components/Header";
-import Footer from "@components/Footer";
+import AppContent from "@components/AppContent";
 import StyledComponentsRegistry from "@components/StyledComponentsRegistry";
 
 export const metadata: Metadata = {
@@ -19,9 +18,7 @@ export default function RootLayout({
       <body>
         <StyledComponentsRegistry>
           <ThemeProviderWrapper>
-            <Header />
-            {children}
-            <Footer />
+            <AppContent>{children}</AppContent>
           </ThemeProviderWrapper>
         </StyledComponentsRegistry>
       </body>
