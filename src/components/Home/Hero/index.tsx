@@ -5,6 +5,7 @@ import { Divider } from "@components/Divider";
 import MarqueeText from "@components/MarqueeText";
 import { useBreakpoint } from "@hooks/useBreakpoint";
 import useViewportWidth from "@hooks/useViewportWidth";
+import { urlFor } from "@/src/sanity/lib/image";
 
 import {
   HeroContainer,
@@ -18,9 +19,21 @@ import {
   Circle,
 } from "./styles";
 
-export default function Hero() {
+type HomeHeroData = {
+  name?: string;
+  currentRole?: string;
+  location?: string;
+  dividerTitle?: string;
+  image?: string;
+};
+
+export default function Hero({ data }: { data?: HomeHeroData }) {
   const { md } = useBreakpoint();
   const width = useViewportWidth();
+
+  const imageUrl = data?.image
+    ? urlFor(data.image).auto("format").fit("max").width(1200).url()
+    : null;
 
   return (
     <>
@@ -32,11 +45,11 @@ export default function Hero() {
             <>
               {/* Mobile */}
               <HeroText>
-                I&#39;m <Highlight>Andrea Dayo</Highlight>
+                I&#39;m <Highlight>{data?.name}</Highlight>
               </HeroText>
               <HeroSmallTextContainer>
-                <HeroSmallText>Software Engineer</HeroSmallText>
-                <HeroSmallText>based in Manila, Philippines.</HeroSmallText>
+                <HeroSmallText>{data?.currentRole}</HeroSmallText>
+                <HeroSmallText>based in {data?.location}.</HeroSmallText>
               </HeroSmallTextContainer>
             </>
           ) : (
@@ -44,12 +57,12 @@ export default function Hero() {
               {/* Desktop */}
               <HeroTextFirst>
                 <HeroText>Hello</HeroText> <Circle />
-                <HeroText>My name is Andrea Dayo.</HeroText>
+                <HeroText>My name is {data?.name}.</HeroText>
               </HeroTextFirst>
               <HeroText>
-                I&#39;m a <Highlight>Software Engineer</Highlight>
+                I&#39;m a <Highlight>{data?.currentRole}</Highlight>
               </HeroText>
-              <HeroText>based in Manila, Philippines.</HeroText>
+              <HeroText>based in {data?.location}.</HeroText>
             </>
           )}
         </HeroTextContainer>
@@ -57,16 +70,16 @@ export default function Hero() {
         {/* Right */}
         <HeroImageContainer>
           <Image
-            src="/assets/Hero Image.png"
-            alt="Hero Image"
+            src={imageUrl ?? "/assets/Hero Image.png"}
+            alt={data?.name ? `${data.name} hero image` : "Hero Image"}
             fill
             style={{ objectFit: "contain", objectPosition: "bottom center" }}
           />
         </HeroImageContainer>
       </HeroContainer>
 
-      <Divider type="black">Welcome to my portfolio</Divider>
-      <MarqueeText>Software Engineer</MarqueeText>
+      <Divider type="black">{data?.dividerTitle}</Divider>
+      <MarqueeText>{data?.currentRole}</MarqueeText>
     </>
   );
 }

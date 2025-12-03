@@ -5,6 +5,9 @@ const nextConfig: NextConfig = {
   compiler: {
     styledComponents: true,
   },
+  images: {
+    domains: ["cdn.sanity.io"],
+  },
 };
 
 export default nextConfig;

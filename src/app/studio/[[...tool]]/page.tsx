@@ -7,17 +7,10 @@
  * https://github.com/sanity-io/next-sanity
  */
 
-import { NextStudio } from "next-sanity/studio";
-import config from "../../../../sanity.config";
-
-export const dynamic = "force-static";
-// Use the Next.js integration from "next-sanity/studio". There isn't a drop-in "@sanity/..." replacement for NextStudio.
-export { metadata, viewport } from "next-sanity/studio";
+import StudioClient from "@components/StudioClient";
+import { metadata, viewport } from "next-sanity/studio";
+export { metadata, viewport };
 
 export default function StudioPage() {
-  return (
-    <div style={{ alignSelf: "stretch", width: "100%", minHeight: "100vh" }}>
-      <NextStudio config={config} />
-    </div>
-  );
+  return <StudioClient />;
 }
