@@ -5,7 +5,17 @@ export default defineType({
   title: "About",
   type: "document",
   fields: [
-    { name: "title", title: "About Title", type: "string" },
+    { name: "dividerTitle", title: "Divider Title", type: "string" },
+    {
+      name: "dividerButton",
+      title: "Divider Button",
+      type: "object",
+      fields: [
+        { name: "label", title: "Label", type: "string" },
+        { name: "path", title: "Path", type: "string" },
+      ],
+    },
+    { name: "header", title: "Header", type: "string" },
     {
       name: "description",
       title: "About Description",
@@ -13,4 +23,12 @@ export default defineType({
       of: [{ type: "block" }],
     },
   ],
+
+  preview: {
+    prepare() {
+      return {
+        title: "Home About Section",
+      };
+    },
+  },
 });

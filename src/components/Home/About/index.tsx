@@ -7,27 +7,60 @@ import {
   TextContainer,
   Heading,
   Text,
-  Highlight,
 } from "./styles";
 
-export default function About() {
+type HomeAboutData = {
+  dividerTitle?: string;
+  dividerButton?: {
+    label?: string;
+    path?: string;
+  };
+  header?: string;
+  description?: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }>;
+};
+
+export default function About({ data }: { data?: HomeAboutData }) {
   return (
     <>
-      <Divider type="black" ctaLabel="Learn More" href="/about">
-        01 About Me
+      <Divider
+        type="black"
+        ctaLabel={data?.dividerButton?.label}
+        href={data?.dividerButton?.path}
+      >
+        {data?.dividerTitle}
       </Divider>
       <AboutContainer>
         <ElementsContainer>
           {/* TODO: Add falling elements animation */}
         </ElementsContainer>
         <TextContainer>
-          <Heading>I design. I code. I build.</Heading>
+          <Heading>{data?.header}</Heading>
           <Text>
-            I&#39;m a <Highlight>Software Engineer</Highlight> who loves design
-            just as much as code. I enjoy shaping ideas from concept to code,
-            making sure they look good and feel great to use. Alongside my
-            personal projects, I also do freelance work, helping teams and
-            brands build products that truly connect with people.
+            {data?.description?.map((block) => (
+              <span
+                key={block._key}
+                style={{ display: "block", marginBottom: "1rem" }}
+              >
+                {block.children?.map((child) => child.text ?? "").join("")}
+              </span>
+            ))}
           </Text>
         </TextContainer>
       </AboutContainer>
