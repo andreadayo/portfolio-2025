@@ -5,7 +5,8 @@ import { Divider } from "@components/Divider";
 import MarqueeText from "@components/MarqueeText";
 import { useBreakpoint } from "@hooks/useBreakpoint";
 import useViewportWidth from "@hooks/useViewportWidth";
-import { urlFor } from "@/src/sanity/lib/image";
+import { getImageUrl } from "@/src/sanity/lib/getImageUrl";
+import { FALLBACK_IMAGE } from "@/src/constants/images";
 
 import {
   HeroContainer,
@@ -16,30 +17,30 @@ import {
   HeroSmallText,
   HeroImageContainer,
   Highlight,
-  Circle,
 } from "./styles";
 
 type HomeHeroData = {
+  helloIcon?: string;
   name?: string;
   currentRole?: string;
   location?: string;
   dividerTitle?: string;
-  image?: string;
+  dividerIcon?: string;
+  heroImage?: string;
 };
 
 export default function Hero({ data }: { data?: HomeHeroData }) {
   const { md } = useBreakpoint();
   const width = useViewportWidth();
 
-  const imageUrl = data?.image
-    ? urlFor(data.image).auto("format").fit("max").width(1200).url()
-    : null;
+  const helloIconUrl = getImageUrl(data?.helloIcon);
+  const dividerIconUrl = getImageUrl(data?.dividerIcon);
+  const heroImageUrl = getImageUrl(data?.heroImage);
 
   return (
     <>
       <HeroContainer>
         {/* Left */}
-
         <HeroTextContainer>
           {width < md ? (
             <>
@@ -56,7 +57,13 @@ export default function Hero({ data }: { data?: HomeHeroData }) {
             <>
               {/* Desktop */}
               <HeroTextFirst>
-                <HeroText>Hello</HeroText> <Circle />
+                <HeroText>Hello</HeroText>
+                <Image
+                  src={helloIconUrl ?? FALLBACK_IMAGE}
+                  alt={"icon"}
+                  width={40}
+                  height={40}
+                />
                 <HeroText>My name is {data?.name}.</HeroText>
               </HeroTextFirst>
               <HeroText>
@@ -70,7 +77,7 @@ export default function Hero({ data }: { data?: HomeHeroData }) {
         {/* Right */}
         <HeroImageContainer>
           <Image
-            src={imageUrl ?? "/assets/Hero Image.png"}
+            src={heroImageUrl ?? FALLBACK_IMAGE}
             alt={data?.name ? `${data.name} hero image` : "Hero Image"}
             fill
             style={{ objectFit: "contain", objectPosition: "bottom center" }}
@@ -79,7 +86,9 @@ export default function Hero({ data }: { data?: HomeHeroData }) {
       </HeroContainer>
 
       <Divider type="black">{data?.dividerTitle}</Divider>
-      <MarqueeText>{data?.currentRole}</MarqueeText>
+      <MarqueeText icon={dividerIconUrl ?? FALLBACK_IMAGE}>
+        {data?.currentRole}
+      </MarqueeText>
     </>
   );
 }

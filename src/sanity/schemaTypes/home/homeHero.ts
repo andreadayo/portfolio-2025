@@ -5,6 +5,12 @@ export default defineType({
   title: "Hero",
   type: "document",
   fields: [
+    {
+      name: "helloIcon",
+      title: "Hello Icon",
+      type: "image",
+      options: { hotspot: true },
+    },
     { name: "name", title: "Name", type: "string" },
     { name: "currentRole", title: "Current Role", type: "string" },
     { name: "location", title: "Location", type: "string" },
@@ -15,11 +21,16 @@ export default defineType({
       description: 'eg. "Welcome to my portfolio!"',
     },
     {
-      name: "image",
+      name: "dividerIcon",
+      title: "Divider Icon",
+      type: "image",
+      options: { hotspot: true },
+    },
+    {
+      name: "heroImage",
       title: "Hero Image",
       type: "image",
       options: { hotspot: true },
-      fields: [{ name: "alt", type: "string", title: "Alt Text" }],
     },
   ],
 });

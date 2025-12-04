@@ -103,10 +103,3 @@ export const HeroImageContainer = styled.div`
 export const Highlight = styled.span`
   color: ${({ theme }) => theme.textAccentColor};
 `;
-
-export const Circle = styled.div`
-  width: 2rem;
-  height: 2rem;
-  border-radius: 50%;
-  background-color: ${({ theme }) => theme.color.grey};
-`;

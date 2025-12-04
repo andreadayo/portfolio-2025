@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Image from "next/image";
 import { TitleXXGigantic } from "@tokens/typography";
 
 export const Container = styled.div`
@@ -36,11 +37,9 @@ export const Text = styled(TitleXXGigantic)`
   }
 `;
 
-export const Icon = styled.span`
+export const Icon = styled(Image)`
   width: 2rem;
   height: 2rem;
-  background-color: ${({ theme }) => theme.color.grey};
-  border-radius: 50%;
 
   @media only screen and (min-width: ${({ theme }) => theme?.breakpoint?.md}) {
     width: 3rem;
