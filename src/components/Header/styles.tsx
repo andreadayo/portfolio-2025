@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { SubtitleSM } from "@tokens/typography";
+import Link from "next/link";
 
 export const HeaderContainer = styled.div`
   position: relative;
@@ -61,6 +62,8 @@ export const HeaderActions = styled.div<{ open?: boolean }>`
   display: ${({ open }) => (open ? "flex" : "none")};
   flex-direction: column;
   align-items: center;
+  background-color: ${({ theme }) => theme.bgColor};
+  outline: 0.063rem solid ${({ theme }) => theme.borderColor};
 
   @media only screen and (min-width: ${({ theme }) => theme?.breakpoint?.sm}) {
     top: 3.25rem;
@@ -82,7 +85,6 @@ export const LinksContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-
   gap: 2rem;
   background-color: ${({ theme }) => theme.bgColor};
   outline: 0.063rem solid ${({ theme }) => theme.borderColor};
@@ -92,6 +94,12 @@ export const LinksContainer = styled.div`
     height: 3.25rem;
     flex-direction: row;
     align-items: center;
+  }
+`;
+
+export const LinkItem = styled(Link)`
+  &:hover {
+    cursor: pointer;
   }
 `;
 
@@ -146,6 +154,10 @@ export const Button = styled.button`
   background-color: ${({ theme }) => theme.invertedBGColor};
   color: ${({ theme }) => theme.invertedContentColor};
   border: none;
+
+  &:hover {
+    cursor: pointer;
+  }
 
   @media only screen and (min-width: ${({ theme }) => theme?.breakpoint?.sm}) {
     height: 3.25rem;

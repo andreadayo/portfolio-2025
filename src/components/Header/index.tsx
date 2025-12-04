@@ -8,14 +8,30 @@ import {
   Text,
   HeaderActions,
   LinksContainer,
+  LinkItem,
   Status,
   Circle,
   Button,
   MenuButton,
 } from "./styles";
 
-export default function Header() {
+type NavItem = {
+  label?: string;
+  path?: string;
+};
+
+export default function Header({
+  links,
+  status,
+}: {
+  links?: NavItem[];
+  status?: string;
+}) {
   const [menuOpen, setMenuOpen] = useState(false);
+
+  const mainLinks = links && links.length > 0 ? links.slice(0, 3) : null;
+  const contactLink =
+    links && links.length > 0 ? links[links.length - 1] : null;
 
   return (
     <PaddingWrapper>
@@ -28,17 +44,26 @@ export default function Header() {
         {/* Right */}
         <HeaderActions open={menuOpen}>
           <LinksContainer>
-            <Text>Home</Text>
-            <Text>About</Text>
-            <Text>Projects</Text>
+            {mainLinks &&
+              mainLinks.map((item, idx) => (
+                <LinkItem key={idx} href={item.path ?? "#"}>
+                  <Text>{item.label ?? ""}</Text>
+                </LinkItem>
+              ))}
           </LinksContainer>
-          <Status>
-            <Circle />
-            <Text>Available for Work</Text>
-          </Status>
-          <Button>
-            <Text>Contact</Text>
-          </Button>
+          {status && (
+            <Status>
+              <Circle />
+              <Text>{status}</Text>
+            </Status>
+          )}
+          {contactLink && (
+            <LinkItem href={contactLink.path ?? "/contact"}>
+              <Button>
+                <Text>{contactLink.label ?? "Contact"}</Text>
+              </Button>
+            </LinkItem>
+          )}
         </HeaderActions>
 
         {/* MenuButton */}

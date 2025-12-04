@@ -5,9 +5,21 @@ import Header from "@components/Header";
 import Footer from "@components/Footer";
 import React from "react";
 
+type NavItem = {
+  label?: string;
+  path?: string;
+};
+
+type LinksData = {
+  links?: NavItem[];
+  status?: string;
+};
+
 export default function AppContent({
+  nav,
   children,
 }: {
+  nav?: LinksData;
   children: React.ReactNode;
 }) {
   const pathname = usePathname() || "";
@@ -17,7 +29,7 @@ export default function AppContent({
 
   return (
     <>
-      {!hideChrome && <Header />}
+      {!hideChrome && <Header links={nav?.links} status={nav?.status} />}
       {children}
       {!hideChrome && <Footer />}
     </>
