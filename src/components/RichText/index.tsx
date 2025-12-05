@@ -47,7 +47,7 @@ const components: PortableTextComponents = {
     },
   },
   block: {
-    normal: ({ children }) => <p>{children}</p>,
+    normal: ({ children }) => <p style={{ margin: 0 }}>{children}</p>,
     h1: ({ children }) => <h1>{children}</h1>,
     h2: ({ children }) => <h2>{children}</h2>,
     h3: ({ children }) => <h3>{children}</h3>,
