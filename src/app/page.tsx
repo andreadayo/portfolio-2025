@@ -8,13 +8,14 @@ import { getSingleton } from "@/src/sanity/lib/singleton";
 export default async function Home() {
   const homeHero = await getSingleton("homeHero");
   const homeAbout = await getSingleton("homeAbout");
+  const homeTech = await getSingleton("homeTech");
 
   return (
     <>
       <PaddingWrapper>
         <Hero data={homeHero} />
         <About data={homeAbout} />
-        <Technologies />
+        <Technologies data={homeTech} />
         <Projects />
       </PaddingWrapper>
     </>

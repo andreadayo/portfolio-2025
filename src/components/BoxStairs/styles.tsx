@@ -1,5 +1,6 @@
 import { TitleXL, TitleBase } from "@/tokens/typography";
 import styled from "styled-components";
+import Image from "next/image";
 
 export const StairsContainer = styled.div`
   width: 100%;
@@ -110,11 +111,9 @@ export const Box = styled.div`
   }
 `;
 
-export const Circle = styled.div`
+export const Icon = styled(Image)`
   width: 2rem;
   height: 2rem;
-  border-radius: 50%;
-  background-color: ${({ theme }) => theme.color.grey};
 
   @media only screen and (min-width: ${({ theme }) => theme?.breakpoint?.sm}) {
     width: 3.75rem;
