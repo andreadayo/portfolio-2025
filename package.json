@@ -12,6 +12,7 @@
     "gen:types": "sanity codegen --tsconfig tsconfig.json --output ./src/sanity/types.generated.ts"
   },
   "dependencies": {
+    "@portabletext/react": "^5.0.0",
     "@sanity/image-url": "^1.2.0",
     "@sanity/vision": "^4.15.0",
     "next": "15.5.2",

@@ -1,4 +1,5 @@
 import { defineType } from "sanity";
+import { richText } from "../blocks/richText";
 
 export default defineType({
   name: "homeAbout",
@@ -20,7 +21,7 @@ export default defineType({
       name: "description",
       title: "About Description",
       type: "array",
-      of: [{ type: "block" }],
+      of: [richText],
     },
   ],
 

@@ -1,6 +1,7 @@
 "use client";
 
 import { Divider } from "@components/Divider";
+import RichText from "@components/RichText";
 import {
   AboutContainer,
   ElementsContainer,
@@ -53,14 +54,7 @@ export default function About({ data }: { data?: HomeAboutData }) {
         <TextContainer>
           <Heading>{data?.header}</Heading>
           <Text>
-            {data?.description?.map((block) => (
-              <span
-                key={block._key}
-                style={{ display: "block", marginBottom: "1rem" }}
-              >
-                {block.children?.map((child) => child.text ?? "").join("")}
-              </span>
-            ))}
+            <RichText value={data?.description ?? []} />
           </Text>
         </TextContainer>
       </AboutContainer>
