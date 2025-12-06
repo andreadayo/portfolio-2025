@@ -32,6 +32,19 @@ export const structure: StructureResolver = (S) =>
             ])
         ),
       S.listItem()
+        .title("About")
+        .child(
+          S.list()
+            .title("About Sections")
+            .items([
+              S.listItem()
+                .title("Introduction")
+                .child(
+                  S.document().schemaType("aboutIntro").documentId("aboutIntro")
+                ),
+            ])
+        ),
+      S.listItem()
         .title("Footer")
         .child(S.document().schemaType("footer").documentId("footer")),
 

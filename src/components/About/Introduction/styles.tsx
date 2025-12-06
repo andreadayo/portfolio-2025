@@ -15,14 +15,18 @@ export const AboutContainer = styled.div`
   @media only screen and (min-width: ${({ theme }) => theme?.breakpoint?.lg}) {
     grid-template-rows: unset;
     grid-template-columns: 2fr 1fr;
+    grid-template-areas: "second first";
   }
 `;
 
 export const ElementsContainer = styled.div`
+  position: relative;
   grid-area: first;
   width: 100%;
   height: 100%;
+  outline: 0.063rem solid ${({ theme }) => theme.borderColor};
 `;
+
 export const TextContainer = styled.div`
   grid-area: second;
   width: 100%;
@@ -65,8 +69,4 @@ export const Text = styled(BodyBase)`
   @media only screen and (min-width: ${({ theme }) => theme?.breakpoint?.lg}) {
     font-size: ${({ theme }) => theme.fontSize.lg};
   }
-`;
-
-export const Highlight = styled.span`
-  color: ${({ theme }) => theme.textAccentColor};
 `;

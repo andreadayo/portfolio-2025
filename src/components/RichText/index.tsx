@@ -1,36 +1,9 @@
 "use client";
 
 import { PortableText, PortableTextComponents } from "@portabletext/react";
+import { PortableTextBlock } from "sanity";
 import { ReactNode } from "react";
 import { Highlight, LinkItem } from "./styles";
-
-export type RichTextBlock = {
-  _type: "block";
-  _key: string;
-  style?: "normal" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote";
-  listItem?: "bullet" | "number";
-  level?: number;
-  children?: Array<{
-    _type: "span";
-    _key: string;
-    text?: string;
-    marks?: string[];
-  }>;
-  markDefs?: Array<
-    | {
-        _key: string;
-        _type: "link";
-        href?: string;
-        newTab?: boolean;
-      }
-    | {
-        _key: string;
-        _type: "highlight";
-      }
-  >;
-};
-
-export type RichText = RichTextBlock[];
 
 const components: PortableTextComponents = {
   marks: {
@@ -56,7 +29,7 @@ const components: PortableTextComponents = {
 };
 
 type RichTextProps = {
-  value: RichText;
+  value: PortableTextBlock[];
 };
 
 export default function RichText({ value }: RichTextProps) {
