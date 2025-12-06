@@ -4,8 +4,17 @@ import homeAbout from "./home/homeAbout";
 import homeHero from "./home/homeHero";
 import homeTech from "./home/homeTech";
 import aboutIntro from "./about/aboutIntro";
+import aboutApproach from "./about/aboutApproach";
 import footer from "./footer/footer";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [navLinks, homeAbout, homeHero, homeTech, aboutIntro, footer],
+  types: [
+    navLinks,
+    homeAbout,
+    homeHero,
+    homeTech,
+    aboutIntro,
+    aboutApproach,
+    footer,
+  ],
 };

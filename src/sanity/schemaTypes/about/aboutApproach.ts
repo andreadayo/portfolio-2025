@@ -1,14 +1,14 @@
 import { defineType, defineField } from "sanity";
 
 export default defineType({
-  name: "homeTech",
-  title: "Technologies",
+  name: "aboutApproach",
+  title: "Approach",
   type: "document",
   fields: [
     { name: "dividerTitle", title: "Divider Title", type: "string" },
     defineField({
-      name: "tech",
-      title: "Tech",
+      name: "approach",
+      title: "Approach",
       type: "array",
       of: [
         {
@@ -44,7 +44,7 @@ export default defineType({
     select: {},
     prepare() {
       return {
-        title: "Home Technologies Section",
+        title: "About Approach Section",
       };
     },
   },
