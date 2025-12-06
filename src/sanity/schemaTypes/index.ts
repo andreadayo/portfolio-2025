@@ -5,6 +5,7 @@ import homeHero from "./home/homeHero";
 import homeTech from "./home/homeTech";
 import aboutIntro from "./about/aboutIntro";
 import aboutApproach from "./about/aboutApproach";
+import aboutExperience from "./about/aboutExperience";
 import footer from "./footer/footer";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
@@ -15,6 +16,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     homeTech,
     aboutIntro,
     aboutApproach,
+    aboutExperience,
     footer,
   ],
 };

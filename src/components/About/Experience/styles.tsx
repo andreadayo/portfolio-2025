@@ -66,10 +66,6 @@ export const Heading = styled(TitleXL)`
   }
 `;
 
-export const Highlight = styled.span`
-  color: ${({ theme }) => theme.textAccentColor};
-`;
-
 // ListItem Styles
 export const ItemContainer = styled.div`
   width: 100%;
@@ -96,11 +92,14 @@ export const ItemContainer = styled.div`
   }
 `;
 
-export const LogoContainer = styled.div`
+export const LogoContainer = styled.div<{ $backgroundimage?: string }>`
   width: 2.75rem;
   height: 2.75rem;
   aspect-ratio: 1 / 1;
-  background-color: ${({ theme }) => theme.color.grey};
+  background-image: ${({ $backgroundimage }) =>
+    $backgroundimage ? `url(${$backgroundimage})` : "none"};
+  background-size: cover;
+  background-position: center;
   outline: 0.063rem solid ${({ theme }) => theme.borderColor};
 
   @media only screen and (min-width: ${({ theme }) => theme?.breakpoint?.sm}) {

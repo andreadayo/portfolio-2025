@@ -1,12 +1,15 @@
 "use client";
 
 import { Divider } from "@components/Divider";
+import { PortableTextBlock } from "sanity";
+import RichText from "@components/RichText";
+import { getImageUrl } from "@/src/sanity/lib/getImageUrl";
+import { FALLBACK_IMAGE } from "@/src/constants/images";
 import {
   AboutContainer,
   ElementsContainer,
   TextContainer,
   Heading,
-  Highlight,
   ItemContainer,
   CompanyContainer,
   LogoContainer,
@@ -16,59 +19,96 @@ import {
   Duration,
 } from "./styles";
 
-function ListItem() {
+type ExperienceItem = {
+  type: string;
+  isShown: boolean;
+  icon: string;
+  company: string;
+  role: string;
+  startDate: string;
+  endDate: string;
+};
+
+interface ListItemProps {
+  item?: ExperienceItem;
+}
+
+function ListItem({ item }: ListItemProps) {
+  const iconUrl = getImageUrl(item?.icon);
+
   return (
     <>
       <ItemContainer>
-        {/* TODO: Add image */}
-        <LogoContainer />
+        <LogoContainer $backgroundimage={iconUrl || FALLBACK_IMAGE} />
         <CompanyContainer>
           <InfoContainer>
-            <CompanyName>Freelance Web Designer and Developer</CompanyName>
-            <Position>Fiverr</Position>
+            <CompanyName>{item?.role}</CompanyName>
+            <Position>{item?.company}</Position>
           </InfoContainer>
-          <Duration>Nov 2023 - Present</Duration>
+          <Duration>{item && `${item.startDate} - ${item.endDate}`}</Duration>
         </CompanyContainer>
       </ItemContainer>
     </>
   );
 }
 
-export default function Experience() {
+type ExperienceProps = {
+  experienceDividerTitle: string;
+  experienceDividerButton: {
+    label: string;
+    path: string;
+  };
+  experienceHeader: PortableTextBlock[];
+  educationDividerTitle: string;
+  educationHeader: PortableTextBlock[];
+  experience: ExperienceItem[];
+};
+
+export default function Experience({ data }: { data: ExperienceProps }) {
+  const experienceItems =
+    data.experience?.filter(
+      (item) => item.isShown && item.type === "experience"
+    ) ?? [];
+  const educationItems =
+    data.experience?.filter(
+      (item) => item.isShown && item.type === "education"
+    ) ?? [];
+
   return (
     <>
       {/* Experience Section */}
       <Divider
         type="black"
-        ctaLabel="View LinkedIn"
-        href="https://www.linkedin.com/in/andreadayo"
+        ctaLabel={data.experienceDividerButton.label}
+        href={data.experienceDividerButton.path}
       >
-        03 Experience
+        {data.experienceDividerTitle}
       </Divider>
       <AboutContainer>
         <TextContainer>
           <Heading>
-            See what I&#39;ve been <Highlight>working on</Highlight>
+            <RichText value={data.experienceHeader ?? []} />
           </Heading>
         </TextContainer>
         <ElementsContainer>
-          {Array.from({ length: 6 }).map((_, index) => (
-            <ListItem key={index} />
+          {experienceItems.map((item) => (
+            <ListItem key={`${item.company}-${item.startDate}`} item={item} />
           ))}
         </ElementsContainer>
       </AboutContainer>
 
       {/* Education Section */}
-      <Divider type="black">04 Education</Divider>
+      <Divider type="black">{data.educationDividerTitle}</Divider>
       <AboutContainer>
         <TextContainer>
           <Heading>
-            See what I&#39;ve <Highlight>studied</Highlight>
+            <RichText value={data.educationHeader ?? []} />
           </Heading>
         </TextContainer>
         <ElementsContainer>
-          {Array.from({ length: 2 }).map((_, index) => (
-            <ListItem key={index} />
+          {educationItems.length === 0 && <ListItem />}
+          {educationItems.map((item) => (
+            <ListItem key={`${item.company}-${item.startDate}`} item={item} />
           ))}
         </ElementsContainer>
       </AboutContainer>
