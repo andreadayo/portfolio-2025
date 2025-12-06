@@ -2,31 +2,50 @@
 
 import { Button } from "@components/Button";
 import { Divider } from "@components/Divider";
+import MarqueeText from "@components/MarqueeText";
+import { getImageUrl } from "@/src/sanity/lib/getImageUrl";
+import { FALLBACK_IMAGE } from "@/src/constants/images";
 import {
   AboutContainer,
   ElementsContainer,
   TextContainer,
   Heading,
-  Circle,
+  Icon,
 } from "./styles";
-import MarqueeText from "../MarqueeText";
 
-export default function NotFound() {
+type NotFoundData = {
+  dividerTitle?: string;
+  marqueeText?: string;
+  marqueeIcon?: string;
+  notFoundIcon?: string;
+  header?: string;
+  submitButtonLabel?: string;
+};
+
+export default function NotFound({ data }: { data: NotFoundData }) {
+  const marqueeIconUrl = getImageUrl(data?.marqueeIcon);
+  const iconUrl = getImageUrl(data?.notFoundIcon);
+
   return (
     <>
-      <Divider type="black" ctaLabel="Learn More" href="/about">
-        Error 404
-      </Divider>
-      <MarqueeText>Page Not Found</MarqueeText>
+      <Divider type="black">{data?.dividerTitle}</Divider>
+      <MarqueeText icon={marqueeIconUrl ?? FALLBACK_IMAGE}>
+        {data?.marqueeText}
+      </MarqueeText>
       <AboutContainer>
         <ElementsContainer>
           {/* TODO: Add falling elements animation */}
         </ElementsContainer>
         <TextContainer>
-          <Circle />
-          <Heading>Oops! Looks like you got lost.</Heading>
-          <Button type="black" size="auto" href="#">
-            Go back to home
+          <Icon
+            src={iconUrl ?? FALLBACK_IMAGE}
+            alt="Not Found Icon"
+            width={40}
+            height={40}
+          />
+          <Heading>{data?.header}</Heading>
+          <Button type="black" size="auto" href="/">
+            {data?.submitButtonLabel}
           </Button>
         </TextContainer>
         <ElementsContainer>

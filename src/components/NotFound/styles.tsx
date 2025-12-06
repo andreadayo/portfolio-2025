@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { TitleMD } from "@tokens/typography";
+import Image from "next/image";
 
 // TODO: Reuse styles from Home/About
 export const AboutContainer = styled.div`
@@ -9,6 +10,7 @@ export const AboutContainer = styled.div`
   grid-template-rows: 1fr;
   grid-template-columns: 1fr;
   outline: 0.063rem solid ${({ theme }) => theme.borderColor};
+  z-index: 10;
 
   @media only screen and (min-width: ${({ theme }) => theme?.breakpoint?.md}) {
     min-height: calc(100vh - 15.5rem);
@@ -83,11 +85,9 @@ export const Heading = styled(TitleMD)`
   }
 `;
 
-export const Circle = styled.div`
+export const Icon = styled(Image)`
   width: 3.75rem;
   height: 3.75rem;
-  border-radius: 50%;
-  background-color: ${({ theme }) => theme.color.grey};
 
   @media only screen and (min-width: ${({ theme }) => theme?.breakpoint?.sm}) {
     width: 5rem;

@@ -1,11 +1,14 @@
 import { PaddingWrapper } from "@components/PaddingWrapper/styles";
 import NotFound from "@components/NotFound";
+import { getSingleton } from "@/src/sanity/lib/singleton";
 
-export default function NotFoundPage() {
+export default async function NotFoundPage() {
+  const notFoundData = await getSingleton("notFound");
+
   return (
     <>
       <PaddingWrapper>
-        <NotFound />
+        <NotFound data={notFoundData} />
       </PaddingWrapper>
     </>
   );

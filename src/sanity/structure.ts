@@ -59,8 +59,14 @@ export const structure: StructureResolver = (S) =>
             ])
         ),
       S.listItem()
+        .title("Contact")
+        .child(S.document().schemaType("contact").documentId("contact")),
+      S.listItem()
         .title("Footer")
         .child(S.document().schemaType("footer").documentId("footer")),
+      S.listItem()
+        .title("Not Found")
+        .child(S.document().schemaType("notFound").documentId("notFound")),
 
       // include other documents
     ]);
