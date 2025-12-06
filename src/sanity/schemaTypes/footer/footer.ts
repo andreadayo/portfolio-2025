@@ -52,6 +52,7 @@ export default defineType({
         },
       ],
     },
+    { name: "copyright", title: "Copyright", type: "string" },
   ],
 
   preview: {

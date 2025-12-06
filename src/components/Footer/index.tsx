@@ -112,7 +112,7 @@ export default function Footer({ data }: { data?: FooterData }) {
         {/* Copyright */}
         <CopyrightContainer>
           <CopyrightWrapper>
-            <CopyrightText>© {data?.copyright ?? ""}</CopyrightText>
+            <CopyrightText>{data?.copyright ?? ""}</CopyrightText>
           </CopyrightWrapper>
           <Button>
             <Label>Back to Top</Label>
