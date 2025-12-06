@@ -3,18 +3,19 @@
 import Image from "next/image";
 import { PaddingWrapper } from "@components/PaddingWrapper/styles";
 import { Divider } from "@components/Divider";
+import MarqueeText from "@components/MarqueeText";
+import { getImageUrl } from "@/src/sanity/lib/getImageUrl";
+import { FALLBACK_IMAGE } from "@/src/constants/images";
 import {
   FooterContainer,
   ThanksContainer,
   TwoColumns,
   MessageContainer,
   MessageText,
-  EmailLink,
-  Address,
-  Icon,
   Column,
   LinksContainer,
   LinkItem,
+  LinkText,
   CopyrightContainer,
   CopyrightWrapper,
   CopyrightText,
@@ -22,16 +23,38 @@ import {
   Label,
 } from "./styles";
 
-export default function Footer() {
+type FooterData = {
+  dividerTitle?: string;
+  featuredImage?: string;
+  ctaText?: string;
+  email?: string;
+  emailIcon?: string;
+  leftTitle?: string;
+  footerLinks?: Array<{
+    label?: string;
+    path?: string;
+  }>;
+  rightTitle?: string;
+  socialLinks?: Array<{
+    label?: string;
+    path?: string;
+  }>;
+  copyright?: string;
+};
+
+export default function Footer({ data }: { data?: FooterData }) {
+  const featuredImageUrl = getImageUrl(data?.featuredImage);
+  const emailIconUrl = getImageUrl(data?.emailIcon);
+
   return (
     <PaddingWrapper>
       <FooterContainer>
-        <Divider type="black">Contact</Divider>
+        <Divider type="black">{data?.dividerTitle ?? ""}</Divider>
 
         {/* Thanks */}
         <ThanksContainer>
           <Image
-            src="/assets/Thanks Footer.svg"
+            src={featuredImageUrl ?? FALLBACK_IMAGE}
             alt="Thanks Image"
             width={1376}
             height={408}
@@ -42,38 +65,46 @@ export default function Footer() {
         {/* Email */}
         <TwoColumns>
           <MessageContainer>
-            <MessageText>
-              Working with teams and brands who want to do things differently.
-              Let&apos;s build something new together.
-            </MessageText>
+            <MessageText>{data?.ctaText ?? ""}</MessageText>
           </MessageContainer>
-          {/*  TODO: SCROLLING TEXT - Convert to component */}
-          <EmailLink>
-            <Address>andrealouisedayo@gmail.com</Address>
-            <Icon />
-            <Address>andrealouisedayo@gmail.com</Address>
-          </EmailLink>
+
+          <MarqueeText
+            icon={emailIconUrl ?? FALLBACK_IMAGE}
+            small={true}
+            href={`mailto:${data?.email ?? ""}`}
+          >
+            {data?.email ?? ""}
+          </MarqueeText>
         </TwoColumns>
 
         {/* More Links */}
-        <TwoColumns>
+        <TwoColumns style={{ zIndex: 15 }}>
           {/*  Explore */}
           <Column>
-            <Divider type="yellow">Explore</Divider>
+            <Divider type="yellow">{data?.leftTitle ?? ""}</Divider>
             <LinksContainer>
-              <LinkItem>Home</LinkItem>
-              <LinkItem>About</LinkItem>
-              <LinkItem>Work</LinkItem>
-              <LinkItem>Contact</LinkItem>
+              {data?.footerLinks && data.footerLinks.length > 0
+                ? data.footerLinks.map((link, idx) => (
+                    <LinkItem key={idx} href={link.path ?? "#"}>
+                      <LinkText>{link.label}</LinkText>
+                    </LinkItem>
+                  ))
+                : ""}
             </LinksContainer>
           </Column>
           {/*  Get in touch */}
           <Column>
-            <Divider type="yellow">Get in touch</Divider>
+            <Divider type="yellow">
+              {data?.rightTitle ?? "Get in touch"}
+            </Divider>
             <LinksContainer>
-              <LinkItem>LinkedIn</LinkItem>
-              <LinkItem>Github</LinkItem>
-              <LinkItem>Instagram</LinkItem>
+              {data?.socialLinks && data.socialLinks.length > 0
+                ? data.socialLinks.map((link, idx) => (
+                    <LinkItem key={idx} href={link.path ?? "#"}>
+                      <LinkText>{link.label}</LinkText>
+                    </LinkItem>
+                  ))
+                : ""}
             </LinksContainer>
           </Column>
         </TwoColumns>
@@ -81,7 +112,7 @@ export default function Footer() {
         {/* Copyright */}
         <CopyrightContainer>
           <CopyrightWrapper>
-            <CopyrightText>© 2025 All rights reserved.</CopyrightText>
+            <CopyrightText>© {data?.copyright ?? ""}</CopyrightText>
           </CopyrightWrapper>
           <Button>
             <Label>Back to Top</Label>

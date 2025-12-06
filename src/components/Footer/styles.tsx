@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import { TitleXL, SubtitleXS, BodyXS, BodyBase } from "@tokens/typography";
+import { SubtitleXS, BodyXS, BodyBase } from "@tokens/typography";
+import Link from "next/link";
 
 export const FooterContainer = styled.div`
   width: 100%;
@@ -30,6 +31,8 @@ export const MessageContainer = styled.div`
   height: 100%;
   padding: 1rem 1.5rem;
   outline: 0.063rem solid ${({ theme }) => theme.borderColor};
+  background: ${({ theme }) => theme.bgColor};
+  z-index: 10;
 
   @media only screen and (min-width: ${({ theme }) => theme?.breakpoint?.sm}) {
     padding: 1.5rem 3.25rem;
@@ -41,46 +44,6 @@ export const MessageText = styled(BodyBase)`
 
   @media only screen and (min-width: ${({ theme }) => theme?.breakpoint?.sm}) {
     font-size: ${({ theme }) => theme.fontSize.lg};
-  }
-`;
-
-export const EmailLink = styled.div`
-  width: 100%;
-  height: 100%;
-  padding: 1.5rem 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  overflow-x: hidden;
-
-  &:hover {
-    background: ${({ theme }) => theme.color.gradientYellow};
-  }
-
-  @media only screen and (min-width: ${({ theme }) => theme?.breakpoint?.sm}) {
-    gap: 1.5rem;
-  }
-`;
-
-export const Address = styled(TitleXL)`
-  color: ${({ theme }) => theme.contentColor};
-
-  @media only screen and (min-width: ${({ theme }) => theme?.breakpoint?.sm}) {
-    font-size: ${({ theme }) => theme.fontSize.gigantic};
-  }
-`;
-
-export const Icon = styled.div`
-  flex-shrink: 0;
-  width: 1.5rem;
-  height: 1.5rem;
-  border-radius: 50%;
-  background-color: ${({ theme }) => theme.color.grey};
-
-  @media only screen and (min-width: ${({ theme }) => theme?.breakpoint?.sm}) {
-    width: 2rem;
-    height: 2rem;
   }
 `;
 
@@ -114,7 +77,12 @@ export const LinksContainer = styled.div`
   }
 `;
 
-export const LinkItem = styled(BodyBase)`
+export const LinkItem = styled(Link)`
+  width: max-content;
+  color: ${({ theme }) => theme.contentColor};
+`;
+
+export const LinkText = styled(BodyBase)`
   color: ${({ theme }) => theme.contentColor};
 `;
 

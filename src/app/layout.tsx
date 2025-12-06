@@ -15,13 +15,16 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const navLinks = await getSingleton("navLinks");
+  const footer = await getSingleton("footer");
 
   return (
     <html lang="en">
       <body>
         <StyledComponentsRegistry>
           <ThemeProviderWrapper>
-            <AppContent nav={navLinks}>{children}</AppContent>
+            <AppContent nav={navLinks} footer={footer}>
+              {children}
+            </AppContent>
           </ThemeProviderWrapper>
         </StyledComponentsRegistry>
       </body>

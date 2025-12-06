@@ -15,11 +15,25 @@ type LinksData = {
   status?: string;
 };
 
+type FooterData = {
+  dividerTitle?: string;
+  message?: string;
+  email?: string;
+  exploreLinks?: NavItem[];
+  socialLinks?: Array<{
+    label?: string;
+    url?: string;
+  }>;
+  copyright?: string;
+};
+
 export default function AppContent({
   nav,
+  footer,
   children,
 }: {
   nav?: LinksData;
+  footer?: FooterData;
   children: React.ReactNode;
 }) {
   const pathname = usePathname() || "";
@@ -31,7 +45,7 @@ export default function AppContent({
     <>
       {!hideChrome && <Header links={nav?.links} status={nav?.status} />}
       {children}
-      {!hideChrome && <Footer />}
+      {!hideChrome && <Footer data={footer} />}
     </>
   );
 }

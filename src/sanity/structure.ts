@@ -31,6 +31,9 @@ export const structure: StructureResolver = (S) =>
                 ),
             ])
         ),
+      S.listItem()
+        .title("Footer")
+        .child(S.document().schemaType("footer").documentId("footer")),
 
       // include other documents
     ]);
