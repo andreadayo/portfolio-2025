@@ -80,7 +80,7 @@ export default function Footer({ data }: { data?: FooterData }) {
         {/* More Links */}
         <TwoColumns style={{ zIndex: 15 }}>
           {/*  Explore */}
-          <Column>
+          <Column style={{ zIndex: 25 }}>
             <Divider type="yellow">{data?.leftTitle ?? ""}</Divider>
             <LinksContainer>
               {data?.footerLinks && data.footerLinks.length > 0
