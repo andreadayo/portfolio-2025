@@ -17,7 +17,7 @@ export default defineType({
     { name: "header", title: "Header", type: "string" },
     {
       name: "description",
-      title: "About Description",
+      title: "Contact Description",
       type: "array",
       of: [richText],
     },
@@ -32,7 +32,7 @@ export default defineType({
     },
     {
       name: "formEmail",
-      title: "Form Name",
+      title: "Form Email",
       type: "object",
       fields: [
         { name: "label", title: "Label", type: "string" },

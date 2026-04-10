@@ -1,6 +1,9 @@
 "use client";
 
 import { Button } from "@components/Button";
+import { getImageUrl } from "@/src/sanity/lib/getImageUrl";
+import { FALLBACK_IMAGE } from "@/src/constants/images";
+import type { SanityImageSource } from "@sanity/image-url/lib/types/types";
 import {
   ListContainer,
   TabsContainer,
@@ -14,18 +17,39 @@ import {
   Tag,
 } from "./styles";
 
-function ProjectItem() {
+type ProjectsItemData = {
+  isShown?: boolean;
+  isFeatured?: boolean;
+  type?: string;
+  projectTitle?: string;
+  projectSlug?: { current: string };
+  featuredImage?: SanityImageSource;
+  briefDescription?: string;
+  date?: string;
+  tech?: string[];
+  figmaLink?: string;
+  githubLink?: string;
+  demoLink?: string;
+  projectDescription?: string[];
+  screenshots?: string[];
+};
+
+function ProjectItem({ project }: { project: ProjectsItemData }) {
+  const featuredImageUrl = getImageUrl(project.featuredImage) ?? FALLBACK_IMAGE;
+
   return (
-    <ProjectContainer>
-      <PreviewImage></PreviewImage>
+    <ProjectContainer href={`/projects/${project.projectSlug?.current}`}>
+      <PreviewImage
+        style={{ backgroundImage: `url(${featuredImageUrl})` }}
+      ></PreviewImage>
       <InfoContainer>
         <Details>
-          <Title>Project Title</Title>
-          <Description>Brief description of the project.</Description>
+          <Title>{project.projectTitle}</Title>
+          <Description>{project.briefDescription}</Description>
           <TagsContainer>
-            <Tag>Figma</Tag>
-            <Tag>HTML</Tag>
-            <Tag>CSS</Tag>
+            {project.tech?.map((techItem, index) => (
+              <Tag key={index}>{techItem}</Tag>
+            ))}
           </TagsContainer>
         </Details>
 
@@ -34,7 +58,6 @@ function ProjectItem() {
           iconSize="small"
           type="default"
           size="auto"
-          href="#"
         >
           View Project
         </Button>
@@ -43,7 +66,7 @@ function ProjectItem() {
   );
 }
 
-export default function List() {
+export default function List({ data = [] }: { data?: ProjectsItemData[] }) {
   return (
     <>
       <ListContainer>
@@ -60,8 +83,8 @@ export default function List() {
         </TabsContainer>
 
         {/*  Projects */}
-        {Array.from({ length: 3 }).map((_, index) => (
-          <ProjectItem key={index} />
+        {data.map((project) => (
+          <ProjectItem key={project.projectSlug?.current} project={project} />
         ))}
       </ListContainer>
     </>

@@ -32,7 +32,15 @@ export const richText = defineArrayMember({
         type: "object",
         title: "Link",
         fields: [
-          { name: "href", type: "url", title: "URL" },
+          {
+            name: "href",
+            type: "url",
+            title: "URL",
+            validation: (Rule) =>
+              Rule.uri({
+                scheme: ["http", "https", "mailto", "tel"],
+              }),
+          },
           {
             name: "newTab",
             type: "boolean",

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Link from "next/link";
 import { BodyBase, SubtitleXXS, TitleXXL } from "@tokens/typography";
 
 export const ListContainer = styled.div`
@@ -13,10 +14,14 @@ export const TabsContainer = styled.div`
   display: flex;
 `;
 
-export const ProjectContainer = styled.div`
+export const ProjectContainer = styled(Link)`
   width: 100%;
   display: grid;
   grid-template-columns: 1fr;
+
+  &:hover {
+    cursor: pointer;
+  }
 
   @media only screen and (min-width: ${({ theme }) => theme?.breakpoint?.lg}) {
     grid-template-columns: 1fr 2fr;
@@ -28,6 +33,9 @@ export const PreviewImage = styled.div`
   width: 100%;
   height: 100%;
   background: ${({ theme }) => theme.color.grey};
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
   outline: 0.063rem solid ${({ theme }) => theme.borderColor};
 
   @media only screen and (min-width: ${({ theme }) => theme?.breakpoint?.lg}) {

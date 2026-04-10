@@ -6,6 +6,8 @@ import homeTech from "./home/homeTech";
 import aboutIntro from "./about/aboutIntro";
 import aboutApproach from "./about/aboutApproach";
 import aboutExperience from "./about/aboutExperience";
+import projects from "./projects/projects";
+import projectItem from "./projects/projectItem";
 import contact from "./contact/contact";
 import footer from "./footer/footer";
 import notFound from "./not-found/not-found";
@@ -19,6 +21,8 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     aboutIntro,
     aboutApproach,
     aboutExperience,
+    projects,
+    projectItem,
     contact,
     footer,
     notFound,

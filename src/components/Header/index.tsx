@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { PaddingWrapper } from "@components/PaddingWrapper/styles";
 import {
   HeaderContainer,
@@ -37,9 +38,11 @@ export default function Header({
     <PaddingWrapper>
       <HeaderContainer>
         {/* Left */}
-        <Logo>
-          <Text>AD</Text>
-        </Logo>
+        <Link href="/">
+          <Logo>
+            <Text>AD</Text>
+          </Logo>
+        </Link>
 
         {/* Right */}
         <HeaderActions open={menuOpen}>

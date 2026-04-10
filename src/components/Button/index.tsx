@@ -12,7 +12,7 @@ interface ButtonProps {
   type?: "black" | "yellow" | "default";
   size: "fill" | "auto";
   children: React.ReactNode;
-  href: string;
+  href?: string;
 }
 
 export function Button({
@@ -24,7 +24,7 @@ export function Button({
   href,
 }: ButtonProps) {
   return (
-    <ButtonContainer href={href} size={size}>
+    <ButtonContainer href={href || ""} size={size}>
       <ButtonText type={type}>
         <Text type={type}>{children}</Text>
       </ButtonText>

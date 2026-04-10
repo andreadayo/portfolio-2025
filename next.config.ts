@@ -6,7 +6,7 @@ const nextConfig: NextConfig = {
     styledComponents: true,
   },
   images: {
-    domains: ["cdn.sanity.io"],
+    remotePatterns: [{ hostname: "cdn.sanity.io" }],
   },
 };
 
