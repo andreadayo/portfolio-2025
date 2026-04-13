@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import Link from "next/link";
-import { BodyBase, SubtitleXXS, TitleXXL } from "@tokens/typography";
+import { BodyBase, SubtitleXXS, TitleMD, TitleXXL } from "@tokens/typography";
 
 export const ListContainer = styled.div`
   width: 100%;
@@ -12,6 +12,15 @@ export const ListContainer = styled.div`
 export const TabsContainer = styled.div`
   width: 100%;
   display: flex;
+  z-index: 5;
+`;
+
+export const TabButton = styled.button`
+  flex: 1;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
 `;
 
 export const ProjectContainer = styled(Link)`
@@ -158,5 +167,25 @@ export const Tag = styled(SubtitleXXS)`
   @media only screen and (min-width: ${({ theme }) => theme?.breakpoint?.sm}) {
     padding: 0.5rem 0.75rem;
     font-size: ${({ theme }) => theme?.fontSize?.xs};
+  }
+`;
+
+export const EmptyState = styled(TitleMD)`
+  width: 100%;
+  padding: 2rem 1.5rem;
+  color: ${({ theme }) => theme.contentColor};
+  text-align: center;
+  outline: 0.063rem solid ${({ theme }) => theme.borderColor};
+
+  @media only screen and (min-width: ${({ theme }) => theme?.breakpoint?.sm}) {
+    font-size: ${({ theme }) => theme.fontSize.lg};
+  }
+
+  @media only screen and (min-width: ${({ theme }) => theme?.breakpoint?.md}) {
+    padding: 3rem;
+  }
+
+  @media only screen and (min-width: ${({ theme }) => theme?.breakpoint?.lg}) {
+    font-size: ${({ theme }) => theme?.fontSize?.xl};
   }
 `;
