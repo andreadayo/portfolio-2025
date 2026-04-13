@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { SubtitleXS, TitleXL } from "@/tokens/typography";
+import Link from "next/link";
 
 export const ProjectsContainer = styled.div`
   width: 100%;
@@ -8,7 +9,7 @@ export const ProjectsContainer = styled.div`
   outline: 0.063rem solid ${({ theme }) => theme.borderColor};
 `;
 
-export const ProjectRow = styled.div`
+export const ProjectRow = styled(Link)`
   width: 100%;
   padding: 1.5rem 1.5rem;
   display: flex;
@@ -17,6 +18,11 @@ export const ProjectRow = styled.div`
   align-items: flex-start;
   gap: 0.75rem;
   border-bottom: 0.063rem solid ${({ theme }) => theme.borderColor};
+  text-decoration: none;
+
+  &:hover {
+    cursor: pointer;
+  }
 
   @media only screen and (min-width: ${({ theme }) => theme?.breakpoint?.sm}) {
     padding: 1.5rem 2.5rem;
