@@ -6,6 +6,7 @@ export const GridContainer = styled.div`
   width: 100%;
   display: grid;
   grid-template-columns: repeat(1, 1fr);
+  outline: 0.063rem solid ${({ theme }) => theme.borderColor};
 
   @media only screen and (min-width: ${({ theme }) => theme?.breakpoint?.md}) {
     grid-template-columns: repeat(2, 1fr);
@@ -27,6 +28,9 @@ export const PreviewImage = styled.div`
   aspect-ratio: 4 / 3;
   width: 100%;
   background: ${({ theme }) => theme.color.grey};
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
   outline: 0.063rem solid ${({ theme }) => theme.borderColor};
 `;
 

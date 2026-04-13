@@ -1,6 +1,14 @@
 "use client";
 
+import { useMemo } from "react";
 import { Divider } from "@components/Divider";
+import {
+  normalizeProjectType,
+  type ProjectTab,
+} from "@/src/components/Projects/Tab";
+import { getImageUrl } from "@/src/sanity/lib/getImageUrl";
+import { FALLBACK_IMAGE } from "@/src/constants/images";
+import type { SanityImageSource } from "@sanity/image-url/lib/types/types";
 import {
   GridContainer,
   GridItem,
@@ -12,18 +20,36 @@ import {
   ArrowIcon,
 } from "./styles";
 
-function ProjectItem() {
+type ProjectsMoreData = {
+  isShown?: boolean;
+  isFeatured?: boolean;
+  type?: string;
+  projectTitle?: string;
+  projectSlug?: { current: string };
+  featuredImage?: SanityImageSource;
+  briefDescription?: string;
+  date?: string;
+  tech?: string[];
+  figmaLink?: string;
+  githubLink?: string;
+  demoLink?: string;
+  projectDescription?: string[];
+  screenshots?: string[];
+};
+
+function ProjectItem({ project }: { project: ProjectsMoreData }) {
+  const featuredImageUrl = getImageUrl(project.featuredImage) ?? FALLBACK_IMAGE;
   return (
     <GridItem>
-      <PreviewImage />
+      <PreviewImage style={{ backgroundImage: `url(${featuredImageUrl})` }} />
       <TitleRow>
         <TitleBox>
-          <Title>Project Title</Title>
+          <Title>{project.projectTitle}</Title>
         </TitleBox>
         {/* TODO: Display ArrowBox on hover */}
         <ArrowBox>
           <ArrowIcon
-            src="/assets/icons/arrow-right.svg"
+            src="/assets/Icons/arrow-right.svg"
             alt="Arrow Right"
             width={16}
             height={16}
@@ -34,18 +60,32 @@ function ProjectItem() {
   );
 }
 
-interface MoreProjectsProps {
-  count?: number;
-}
+export default function MoreProjects({
+  data = [],
+  selectedTab,
+}: {
+  data?: ProjectsMoreData[];
+  selectedTab: ProjectTab;
+}) {
+  const filteredProjects = useMemo(
+    () =>
+      data.filter(
+        (project) => normalizeProjectType(project.type) === selectedTab,
+      ),
+    [data, selectedTab],
+  );
 
-export default function MoreProjects({ count = 0 }: MoreProjectsProps) {
+  if (filteredProjects.length === 0) {
+    return null;
+  }
+
   return (
     <>
       <Divider type="black">More Works</Divider>
       <GridContainer>
         {/*  Projects */}
-        {Array.from({ length: count }).map((_, index) => (
-          <ProjectItem key={index} />
+        {filteredProjects.map((project, index) => (
+          <ProjectItem key={index} project={project} />
         ))}
       </GridContainer>
     </>
