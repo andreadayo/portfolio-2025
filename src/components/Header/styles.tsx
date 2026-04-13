@@ -13,6 +13,7 @@ export const HeaderContainer = styled.div`
   justify-content: space-between;
   background-color: ${({ theme }) => theme.bgColor};
   outline: 0.063rem solid ${({ theme }) => theme.borderColor};
+  z-index: 999;
 
   @media only screen and (min-width: ${({ theme }) => theme?.breakpoint?.sm}) {
     height: 3.25rem;
@@ -103,6 +104,18 @@ export const LinkItem = styled(Link)`
   }
 `;
 
+export const ContactLinkItem = styled(Link)`
+  width: 100%;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  @media only screen and (min-width: ${({ theme }) => theme?.breakpoint?.lg}) {
+    width: auto;
+  }
+`;
+
 export const Status = styled.div`
   position: relative;
   width: 100%;
@@ -186,5 +199,15 @@ export const MenuButton = styled.button`
 
   @media only screen and (min-width: ${({ theme }) => theme?.breakpoint?.lg}) {
     display: none;
+  }
+`;
+
+export const MenuIcon = styled.img`
+  width: 1rem;
+  height: 1rem;
+
+  @media only screen and (min-width: ${({ theme }) => theme?.breakpoint?.md}) {
+    width: 1.5rem;
+    height: 1.5rem;
   }
 `;

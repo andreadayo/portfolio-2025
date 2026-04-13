@@ -10,10 +10,12 @@ import {
   HeaderActions,
   LinksContainer,
   LinkItem,
+  ContactLinkItem,
   Status,
   Circle,
   Button,
   MenuButton,
+  MenuIcon,
 } from "./styles";
 
 type NavItem = {
@@ -61,17 +63,31 @@ export default function Header({
             </Status>
           )}
           {contactLink && (
-            <LinkItem href={contactLink.path ?? "/contact"}>
+            <ContactLinkItem href={contactLink.path ?? "/contact"}>
               <Button>
                 <Text>{contactLink.label ?? "Contact"}</Text>
               </Button>
-            </LinkItem>
+            </ContactLinkItem>
           )}
         </HeaderActions>
 
         {/* MenuButton */}
         <MenuButton onClick={() => setMenuOpen((prev) => !prev)}>
-          {menuOpen ? "X" : "☰"}
+          {menuOpen ? (
+            <MenuIcon
+              src="/assets/Icons/close.svg"
+              alt="Menu"
+              width={16}
+              height={16}
+            />
+          ) : (
+            <MenuIcon
+              src="/assets/Icons/menu.svg"
+              alt="Menu"
+              width={16}
+              height={16}
+            />
+          )}
         </MenuButton>
       </HeaderContainer>
     </PaddingWrapper>
