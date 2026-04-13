@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Tab, { type ProjectTab } from "@/src/components/Projects/Tab";
 import List from "@/src/components/Projects/List";
-import MoreProjects from "@/src/components/MoreProjects";
+import MoreProjects from "@/src/components/Projects/MoreProjects";
 import type { SanityImageSource } from "@sanity/image-url/lib/types/types";
 
 type ProjectData = {

@@ -2,7 +2,7 @@ import { PaddingWrapper } from "@components/PaddingWrapper/styles";
 import ProjectTitle from "@/src/components/ProjectPreview/Title";
 import Description from "@/src/components/ProjectPreview/Description";
 import Screenshots from "@/src/components/ProjectPreview/Screenshots";
-import MoreProjects from "@/src/components/MoreProjects";
+import MoreProjects from "@/src/components/Projects/MoreProjects";
 
 export default function ProjectPreview() {
   return (
