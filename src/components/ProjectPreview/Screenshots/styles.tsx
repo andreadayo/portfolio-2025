@@ -27,4 +27,7 @@ export const GridItem = styled.div`
   width: 100%;
   aspect-ratio: 16 / 9;
   background: ${({ theme }) => theme.color.grey};
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 `;

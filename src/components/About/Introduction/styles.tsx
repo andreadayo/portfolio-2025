@@ -5,24 +5,34 @@ export const AboutContainer = styled.div`
   width: 100%;
   height: max-content;
   display: grid;
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: auto;
   grid-template-columns: 1fr;
   grid-template-areas:
     "second"
     "first";
   outline: 0.063rem solid ${({ theme }) => theme.borderColor};
 
-  @media only screen and (min-width: ${({ theme }) => theme?.breakpoint?.lg}) {
+  @media only screen and (min-width: ${({ theme }) => theme?.breakpoint?.sm}) {
     grid-template-rows: unset;
     grid-template-columns: 2fr 1fr;
+    grid-template-areas: "second first";
   }
 `;
 
 export const ElementsContainer = styled.div`
+  position: relative;
   grid-area: first;
   width: 100%;
   height: 100%;
+  max-height: 16rem;
+  outline: 0.063rem solid ${({ theme }) => theme.borderColor};
+
+  @media only screen and (min-width: ${({ theme }) => theme?.breakpoint?.sm}) {
+    height: auto;
+    max-height: none;
+  }
 `;
+
 export const TextContainer = styled.div`
   grid-area: second;
   width: 100%;
@@ -65,8 +75,4 @@ export const Text = styled(BodyBase)`
   @media only screen and (min-width: ${({ theme }) => theme?.breakpoint?.lg}) {
     font-size: ${({ theme }) => theme.fontSize.lg};
   }
-`;
-
-export const Highlight = styled.span`
-  color: ${({ theme }) => theme.textAccentColor};
 `;

@@ -1,5 +1,6 @@
 import {
-  ButtonContainer,
+  ButtonContainerLink,
+  ButtonContainerStatic,
   ButtonText,
   Text,
   IconContainer,
@@ -12,7 +13,7 @@ interface ButtonProps {
   type?: "black" | "yellow" | "default";
   size: "fill" | "auto";
   children: React.ReactNode;
-  href: string;
+  href?: string;
 }
 
 export function Button({
@@ -23,10 +24,10 @@ export function Button({
   children,
   href,
 }: ButtonProps) {
-  return (
-    <ButtonContainer href={href} size={size}>
-      <ButtonText type={type}>
-        <Text type={type}>{children}</Text>
+  const content = (
+    <>
+      <ButtonText $type={type}>
+        <Text $type={type}>{children}</Text>
       </ButtonText>
 
       {icon && iconSize && (
@@ -40,6 +41,16 @@ export function Button({
           />
         </IconContainer>
       )}
-    </ButtonContainer>
+    </>
   );
+
+  if (href) {
+    return (
+      <ButtonContainerLink href={href} $size={size}>
+        {content}
+      </ButtonContainerLink>
+    );
+  }
+
+  return <ButtonContainerStatic $size={size}>{content}</ButtonContainerStatic>;
 }

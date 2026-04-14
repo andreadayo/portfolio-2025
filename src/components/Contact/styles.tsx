@@ -55,10 +55,6 @@ export const Text = styled(BodyBase)`
   }
 `;
 
-export const Highlight = styled.span`
-  color: ${({ theme }) => theme.textAccentColor};
-`;
-
 export const FormContainer = styled.div`
   width: 100%;
   height: 100%;

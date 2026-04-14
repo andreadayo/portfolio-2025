@@ -8,12 +8,18 @@
     "start": "next start",
     "lint": "eslint",
     "lint:css": "stylelint './src/**/*.{ts,tsx}'",
-    "commit": "cz"
+    "commit": "cz",
+    "gen:types": "sanity codegen --tsconfig tsconfig.json --output ./src/sanity/types.generated.ts"
   },
   "dependencies": {
-    "next": "15.5.9",
+    "@portabletext/react": "^5.0.0",
+    "@sanity/image-url": "^1.2.0",
+    "@sanity/vision": "^4.15.0",
+    "next": "^16.0.7",
+    "next-sanity": "^11.6.6",
     "react": "19.1.0",
     "react-dom": "19.1.0",
+    "sanity": "^4.20.0",
     "styled-components": "^6.1.19"
   },
   "devDependencies": {
@@ -21,6 +27,7 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "baseline-browser-mapping": "^2.10.13",
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^9",
     "eslint-config-next": "15.5.2",

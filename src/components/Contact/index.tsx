@@ -1,51 +1,75 @@
 "use client";
 
+import { PortableTextBlock } from "sanity";
 import { Button } from "@components/Button";
 import { Divider } from "@components/Divider";
 import { Input } from "@components/Input";
 import MarqueeText from "@components/MarqueeText";
+import RichText from "@components/RichText";
+import { getImageUrl } from "@/src/sanity/lib/getImageUrl";
+import { FALLBACK_IMAGE } from "@/src/constants/images";
 import {
   AboutContainer,
   TextContainer,
   Heading,
   Text,
-  Highlight,
   FormContainer,
   InputRow,
 } from "./styles";
 
-export default function Contact() {
+type ContactData = {
+  dividerTitle?: string;
+  marqueeText?: string;
+  marqueeIcon?: string;
+  header?: string;
+  description?: PortableTextBlock[];
+  formName?: {
+    label?: string;
+    placeholder?: string;
+  };
+  formEmail?: {
+    label?: string;
+    placeholder?: string;
+  };
+  formMessage?: {
+    label?: string;
+    placeholder?: string;
+  };
+  submitButtonLabel?: string;
+};
+export default function Contact({ data }: { data: ContactData }) {
+  const marqueeIconUrl = getImageUrl(data?.marqueeIcon);
   return (
     <>
-      <Divider type="black">Let&#39;s Collaborate</Divider>
-      <MarqueeText>Contact</MarqueeText>
+      <Divider type="black">{data?.dividerTitle}</Divider>
+      <MarqueeText icon={marqueeIconUrl ?? FALLBACK_IMAGE}>
+        {data?.marqueeText}
+      </MarqueeText>
       <AboutContainer>
         <TextContainer>
-          <Heading>Get in touch</Heading>
+          <Heading>{data?.header}</Heading>
           <Text>
-            I&#39;m always excited to connect — whether it&#39;s about a
-            project, partnership, or just to say hi.
-            <br />
-            <br />
-            Or you may reach me at{" "}
-            <Highlight>andrealouisedayo@gmail.com</Highlight>.
+            <RichText value={data?.description ?? []} />
           </Text>
         </TextContainer>
         <FormContainer>
           <InputRow>
-            <Input label="What's your name" placeholder="Your name" />
             <Input
-              label="What's your email address"
-              placeholder="Your email address"
+              label={data?.formName?.label ?? ""}
+              placeholder={data?.formName?.placeholder ?? ""}
+            />
+            <Input
+              label={data?.formEmail?.label ?? ""}
+              placeholder={data?.formEmail?.placeholder ?? ""}
             />
           </InputRow>
           <Input
-            label="What did you want to talk about?"
-            placeholder="Your message"
+            label={data?.formMessage?.label ?? ""}
+            placeholder={data?.formMessage?.placeholder ?? ""}
             type="textarea"
           />
           <Button type="black" size="auto" href="#">
-            Submit message
+            {data?.submitButtonLabel}
           </Button>
         </FormContainer>
       </AboutContainer>

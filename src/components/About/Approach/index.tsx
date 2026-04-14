@@ -1,29 +1,32 @@
 "use client";
 
 import BoxStairs from "@components/BoxStairs";
+import { getImageUrl } from "@/src/sanity/lib/getImageUrl";
+import { FALLBACK_IMAGE } from "@/src/constants/images";
 
-export default function Approach() {
+type AboutApproachData = {
+  dividerTitle?: string;
+  approach?: Array<{
+    icon?: string;
+    header?: string;
+    description?: string;
+  }>;
+};
+
+export default function Approach({ data }: { data: AboutApproachData }) {
   return (
     <>
       <BoxStairs
-        title="02 My Approach"
-        boxes={[
-          {
-            title: "Research & Plan",
-            description:
-              "I dive into the project and the people using it — the fun part is finding what clicks.",
-          },
-          {
-            title: "Build & Design",
-            description:
-              "I bring designs to life, focusing on the interactions and details that make a site feel thoughtful and fun.",
-          },
-          {
-            title: "Maintain & Improve",
-            description:
-              "Launch isn't the finish line. I tweak, refine, and improve so everything keeps feeling right.",
-          },
-        ]}
+        title={data?.dividerTitle || ""}
+        boxes={
+          data?.approach && data.approach.length > 0
+            ? data.approach.map((t) => ({
+                icon: getImageUrl(t.icon) || FALLBACK_IMAGE,
+                title: t.header ?? "",
+                description: t.description ?? "",
+              }))
+            : []
+        }
       />
     </>
   );

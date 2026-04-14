@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import { BodyBase, SubtitleXXS, TitleXXL } from "@tokens/typography";
+import Link from "next/link";
+import { BodyBase, SubtitleXXS, TitleMD, TitleXXL } from "@tokens/typography";
 
 export const ListContainer = styled.div`
   width: 100%;
@@ -8,15 +9,14 @@ export const ListContainer = styled.div`
   outline: 0.063rem solid ${({ theme }) => theme.borderColor};
 `;
 
-export const TabsContainer = styled.div`
-  width: 100%;
-  display: flex;
-`;
-
-export const ProjectContainer = styled.div`
+export const ProjectContainer = styled(Link)`
   width: 100%;
   display: grid;
   grid-template-columns: 1fr;
+
+  &:hover {
+    cursor: pointer;
+  }
 
   @media only screen and (min-width: ${({ theme }) => theme?.breakpoint?.lg}) {
     grid-template-columns: 1fr 2fr;
@@ -28,6 +28,9 @@ export const PreviewImage = styled.div`
   width: 100%;
   height: 100%;
   background: ${({ theme }) => theme.color.grey};
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
   outline: 0.063rem solid ${({ theme }) => theme.borderColor};
 
   @media only screen and (min-width: ${({ theme }) => theme?.breakpoint?.lg}) {
@@ -150,5 +153,25 @@ export const Tag = styled(SubtitleXXS)`
   @media only screen and (min-width: ${({ theme }) => theme?.breakpoint?.sm}) {
     padding: 0.5rem 0.75rem;
     font-size: ${({ theme }) => theme?.fontSize?.xs};
+  }
+`;
+
+export const EmptyState = styled(TitleMD)`
+  width: 100%;
+  padding: 2rem 1.5rem;
+  color: ${({ theme }) => theme.contentColor};
+  text-align: center;
+  outline: 0.063rem solid ${({ theme }) => theme.borderColor};
+
+  @media only screen and (min-width: ${({ theme }) => theme?.breakpoint?.sm}) {
+    font-size: ${({ theme }) => theme.fontSize.lg};
+  }
+
+  @media only screen and (min-width: ${({ theme }) => theme?.breakpoint?.md}) {
+    padding: 3rem;
+  }
+
+  @media only screen and (min-width: ${({ theme }) => theme?.breakpoint?.lg}) {
+    font-size: ${({ theme }) => theme?.fontSize?.xl};
   }
 `;

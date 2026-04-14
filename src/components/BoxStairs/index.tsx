@@ -1,16 +1,18 @@
 "use client";
 
+import type { StaticImageData } from "next/image";
 import { Divider } from "@components/Divider";
 import {
   StairsContainer,
   Box,
-  Circle,
+  Icon,
   TextContainer,
   Title,
   Description,
 } from "./styles";
 
 interface TechnologyBox {
+  icon?: string | StaticImageData | null;
   title: string;
   description: string;
 }
@@ -27,7 +29,9 @@ export default function BoxStairs({ title, boxes }: BoxStairsProps) {
       <StairsContainer>
         {boxes.map((box, index) => (
           <Box key={index} className={`box-${index + 1}`}>
-            <Circle />
+            {box.icon && (
+              <Icon src={box.icon} alt={box.title} width={60} height={60} />
+            )}
             <TextContainer>
               <Title>{box.title}</Title>
               <Description>{box.description}</Description>
