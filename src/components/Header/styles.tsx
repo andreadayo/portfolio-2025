@@ -99,6 +99,7 @@ export const LinksContainer = styled.div`
 `;
 
 export const LinkItem = styled(Link)`
+  color: ${({ theme }) => theme.contentColor};
   &:hover {
     cursor: pointer;
   }
