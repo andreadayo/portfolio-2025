@@ -82,5 +82,8 @@ export const PreviewImage = styled.div`
   aspect-ratio: 16 / 9;
   width: 100%;
   background-color: ${({ theme }) => theme.color.grey};
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
   outline: 0.063rem solid ${({ theme }) => theme.borderColor};
 `;

@@ -1,19 +1,27 @@
 "use client";
 
 import { Divider } from "@/src/components/Divider";
+import RichText from "@/src/components/RichText";
+import type { PortableTextBlock } from "sanity";
 import { TextContainer, Text } from "./styles";
 
-export default function Description() {
+type ProjectPreviewData = {
+  projectDescription?: PortableTextBlock[];
+};
+
+export default function Description({ data }: { data?: ProjectPreviewData }) {
+  const descriptionBlocks = data?.projectDescription ?? [];
+
   return (
     <>
       <Divider type="yellow">Description</Divider>
       <TextContainer>
         <Text>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sed
-          leo sapien. Maecenas in nisl eu ligula egestas finibus. Maecenas sed
-          nisi ligula. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          Integer sed leo sapien. Maecenas in nisl eu ligula egestas finibus.
-          Maecenas sed nisi ligula.
+          {descriptionBlocks.length > 0 ? (
+            <RichText value={descriptionBlocks} />
+          ) : (
+            "No description available."
+          )}
         </Text>
       </TextContainer>
     </>

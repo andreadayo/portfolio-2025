@@ -5,7 +5,7 @@ import { Divider } from "@components/Divider";
 import {
   normalizeProjectType,
   type ProjectTab,
-} from "@/src/components/Projects/Tab";
+} from "@/src/components/Projects/Tab/utils";
 import { getImageUrl } from "@/src/sanity/lib/getImageUrl";
 import { FALLBACK_IMAGE } from "@/src/constants/images";
 import type { SanityImageSource } from "@sanity/image-url/lib/types/types";

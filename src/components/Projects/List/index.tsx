@@ -7,7 +7,7 @@ import { FALLBACK_IMAGE } from "@/src/constants/images";
 import {
   normalizeProjectType,
   type ProjectTab,
-} from "@/src/components/Projects/Tab";
+} from "@/src/components/Projects/Tab/utils";
 import type { SanityImageSource } from "@sanity/image-url/lib/types/types";
 import {
   ListContainer,

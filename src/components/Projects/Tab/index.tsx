@@ -1,37 +1,16 @@
 "use client";
 
 import { Button } from "@components/Button";
+import type { ProjectTab } from "./utils";
 import { TabsContainer, TabButton } from "./styles";
 
-export type ProjectTab = "website" | "design" | "playground";
+export type { ProjectTab } from "./utils";
 
 const PROJECT_TABS: { label: string; value: ProjectTab }[] = [
   { label: "Websites", value: "website" },
   { label: "Design", value: "design" },
   { label: "Playground", value: "playground" },
 ];
-
-export function normalizeProjectType(type?: string): ProjectTab | undefined {
-  const normalizedType = type?.trim().toLowerCase();
-
-  if (!normalizedType) {
-    return undefined;
-  }
-
-  if (normalizedType === "websites") {
-    return "website";
-  }
-
-  if (
-    normalizedType === "website" ||
-    normalizedType === "design" ||
-    normalizedType === "playground"
-  ) {
-    return normalizedType;
-  }
-
-  return undefined;
-}
 
 export default function Tab({
   selectedTab,
